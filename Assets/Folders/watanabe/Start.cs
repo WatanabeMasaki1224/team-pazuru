@@ -7,15 +7,21 @@ public class Start : MonoBehaviour
     public Transform spawnPoint;
     private GameObject currentBall;
 
-    public void StartButton()
+    public void OnClickStart()
     {
+        if(GameManager.instance.CurrentState != GameState.Placing)
+        {
+            Debug.Log("配置フェイズのみスタートボタンをおせます");
+            return;
+        }
+       
         if (ballPrefab == null )
         {
             Debug.Log("ボールのPrefabが設定されていません");
             return;
         }
         
-        if ( spawnPoint == null ) 
+        if (spawnPoint == null ) 
         {
             Debug.Log("スポーンポイントのPrefabが設定されていません");
             return;
@@ -26,7 +32,7 @@ public class Start : MonoBehaviour
             Debug.Log("すでにボールが存在しています");
             return;
         }
-
+        GameManager.instance.StartGame();  //ゲームフェイズに状態変更
         currentBall =Instantiate(ballPrefab, spawnPoint);
     }
 }
