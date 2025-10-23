@@ -19,24 +19,15 @@ public class GimmikStarManager : MonoBehaviour
 			return;
 		}
 
-		Transform parentTransform = transform.parent; // 自身の親オブジェクトを取得
+		_pairStarPos = _partner.transform.localPosition;
 
-		if (parentTransform)
+		if (_pairStarPos != null)
 		{
-			_pairStarPos = parentTransform.Find(_partner.name).position;	// ペアとなる星オブジェクトの位置を特定
-
-			if (_pairStarPos != null)
-			{
-				Debug.Log($"{transform.name}のペア（{_pairStarPos}）の位置を見つけました: {_pairStarPos}");
-			}
-			else
-			{
-				Debug.LogError($"ペアとなるオブジェクトが見つかりません: {_pairStarPos}");
-			}
+			Debug.Log($"{transform.name}のペア（{_pairStarPos}）の位置を見つけました: {_pairStarPos}");
 		}
 		else
 		{
-			Debug.LogError("このワープポイントには親オブジェクトがありません。");
+			Debug.LogError($"ペアとなるオブジェクトが見つかりません: {_pairStarPos}");
 		}
 	}
 
