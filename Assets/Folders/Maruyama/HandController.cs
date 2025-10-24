@@ -5,6 +5,7 @@ using UnityEngine.UI;
 /// <summary>
 /// 空のHandManagerを作成してアタッチ
 /// Image UI をクリックするとインスペクターで設定した図形プレハブが生成
+/// この処理は State が Placing のときだけ行われるようにする 
 /// </summary>
 public class HandController : MonoBehaviour
 {
