@@ -6,10 +6,11 @@ public class Goal : MonoBehaviour
 {
     public GameObject resultPanel;　 //リザルトUIパネル
     public Text medalText;   　　　　//リザルトに表示されるメダル数
+    public int currentStageNumber;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-       if(other.CompareTag("Ball"))
+        if (other.CompareTag("Ball"))
         {
             Debug.Log("ゴール到達");
 
@@ -18,12 +19,12 @@ public class Goal : MonoBehaviour
             if (rb != null)
             {
                 rb.linearVelocity = Vector2.zero;
-                rb.angularVelocity = 0f;
+                rb.angularVelocity = 0f;  //回転を止める
                 rb.gravityScale = 0f;
             }
 
             //リザルトフェイズに変更
-            if(GameManager.instance != null)
+            if (GameManager.instance != null)
             {
                 GameManager.instance.ToResult();
             }
@@ -32,8 +33,8 @@ public class Goal : MonoBehaviour
             //メダル獲得と保存
             int currentMedal = PlayerPrefs.GetInt("MedalCount", 0);
             currentMedal += 1;
-            PlayerPrefs.SetInt("MedalCount",currentMedal);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetInt("MedalCount", currentMedal);　//メダル数をセーブ
+            PlayerPrefs.Save();　　//実際にディスク（端末）に保存を確定させる命令（なくても保存されるkpとが多いが確実に保存）
             Debug.Log("メダル獲得。メダル数" + currentMedal);
 
 
@@ -48,6 +49,10 @@ public class Goal : MonoBehaviour
             {
                 medalText.text = "メダル：" + currentMedal;
             }
+
+            // ステージクリア後に次ステージを解放
+            StageSerect.UnlockNextStage(currentStageNumber);
+        
         }
     }
 

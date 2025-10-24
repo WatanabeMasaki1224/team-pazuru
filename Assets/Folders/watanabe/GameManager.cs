@@ -17,6 +17,12 @@ public class GameManager : MonoBehaviour
         instance = this;    
     }
 
+    public void PlaceTime()
+    {
+        CurrentState = GameState.Placing;
+        Debug.Log("図形配置フェイズへ");
+    }
+
     public void StartGame()
     {
         CurrentState = GameState.Playing;
