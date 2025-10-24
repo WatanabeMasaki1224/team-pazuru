@@ -2,51 +2,77 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// 図形をドラッグ＆ドロップで制御（簡易版）
-/// シーン内にEventSystemが必要
-/// カメラに Physics2DRaycaster をアタッチする必要がある
-/// オブジェクトには Collider2D が必要
+/// 図形をドラッグ＆ドロップで制御するコンポーネント。
+/// 
+/// 【概要】
+/// - 図形をマウスでドラッグして移動できる。
+/// - 他の図形と重なっている場合は配置不可。
+/// - 配置できない場合は元の位置に戻る。
+/// - ドラッグ中は置けるときだけ赤く表示。
+/// 
+/// 【前提条件】
+/// - シーン内に EventSystem が存在すること。
+/// - カメラに Physics2DRaycaster がアタッチされていること。
+/// - 図形オブジェクトに Collider2D と SpriteRenderer があること。
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    private Vector3 _originPosition; // 生成されるポジション
-    bool _canPut = false;
+    Vector3 _originPosition;
+    Collider2D _collider;
+    SpriteRenderer _renderer;
+    bool _canPut = true;
+
+    void Start()
+    {
+        _collider = GetComponent<Collider2D>();
+        _renderer = GetComponent<SpriteRenderer>();
+
+        if (FindAnyObjectByType<EventSystem>() == null)
+            Debug.LogWarning("EventSystem がシーン内に存在しません。");
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // ドラッグ開始時に元の位置を保存
         _originPosition = transform.position;
-        Debug.Log("ドラッグ開始");
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // マウスのスクリーン座標をワールド座標に変換して追従
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(eventData.position);
-        mousePos.z = 0; // 2DなのでZ固定
+        mousePos.z = 0;
         transform.position = mousePos;
 
-        Debug.Log("ドラッグ中");
+        // 自分以外の重なりをチェック
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, _collider.bounds.size, 0f);
+        _canPut = true;
+        foreach (var hit in hits)
+        {
+            if (hit != _collider)
+            {
+                _canPut = false;
+                break;
+            }
+        }
+
+        // 置けないとき赤くする
+        _renderer.color = _canPut ? Color.white : Color.red;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("ドラッグ終了");
-        // 今は終了時の位置固定。必要なら元に戻すことも可能
-        // transform.position = _originPosition;
-        // ここで_canPut = true なら位置更新
-    }
+        if (_canPut)
+        {
+            Debug.Log("配置成功！");
+        }
+        else
+        {
+            Debug.Log("配置できません（重なり）");
+            transform.position = _originPosition;
+        }
 
-    void Start()
-    {
-        // EventSystemチェック
-        if (FindAnyObjectByType<EventSystem>() == null)
-            Debug.LogWarning("シーン内に EventSystem が存在しません。");
-
-        // Physics2DRaycasterチェック
-        Camera cam = Camera.main;
-        if (cam != null && cam.GetComponent<Physics2DRaycaster>() == null)
-            Debug.LogWarning("カメラに Physics2DRaycaster がアタッチされていません。");
+        // ドラッグ終了時は色を元に戻す
+        _renderer.color = Color.white;
     }
 }
