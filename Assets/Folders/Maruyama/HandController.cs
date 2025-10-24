@@ -19,7 +19,7 @@ public class HandController : MonoBehaviour
 
     [SerializeField] HandShape[] shapes;
     [SerializeField] Transform spawnPoint; // 生成位置
-    // public bool _isSpawned = false;
+    [SerializeField] Vector2 checkSize = new Vector2(1f, 1f); // 生成判定Boxサイズ
 
     // 現在選択中の図形
     HandShape _currentShape;
@@ -52,9 +52,8 @@ public class HandController : MonoBehaviour
     {
         if (_currentShape == null || spawnPoint == null) return;
 
-        // 生成位置に他のオブジェクトがあるかチェック
-        Collider2D hit = Physics2D.OverlapBox(spawnPoint.position,
-            _currentShape.shapePrefab.GetComponent<Collider2D>().bounds.size, 0f);
+        // 生成位置に判定用Boxを置いて重なりを確認
+        Collider2D hit = Physics2D.OverlapBox(spawnPoint.position, checkSize, 0f);
 
         if (hit != null)
         {
@@ -64,7 +63,16 @@ public class HandController : MonoBehaviour
 
         // 問題なければ生成
         Instantiate(_currentShape.shapePrefab, spawnPoint.position, Quaternion.identity);
-        // _isSpawned = true;
         Debug.Log($"{_currentShape.shapeName} を生成しました。");
+    }
+
+    // デバッグ用にSceneビューで判定Boxを可視化
+    void OnDrawGizmosSelected()
+    {
+        if (spawnPoint != null)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireCube(spawnPoint.position, checkSize);
+        }
     }
 }
