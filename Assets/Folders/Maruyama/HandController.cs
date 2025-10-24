@@ -12,17 +12,28 @@ public class HandController : MonoBehaviour
     [System.Serializable]
     public class HandShape
     {
-        public string shapeName;       // 図形名前
-        public GameObject shapePrefab; // 生成図形Prefab
-        public Image imageUI;          // 手札UI
+        [Tooltip("図形の名前")]
+        public string shapeName;
+
+        [Tooltip("生成する図形のPrefab")]
+        public GameObject shapePrefab;
+
+        [Tooltip("手札UIに対応するImage")]
+        public Image imageUI;
     }
 
-    [SerializeField] HandShape[] shapes;
-    [SerializeField] Transform spawnPoint; // 生成位置
-    [SerializeField] Vector2 checkSize = new Vector2(1f, 1f); // 生成判定Boxサイズ
+    [SerializeField, Tooltip("手札の配列。Inspectorで設定する")]
+    HandShape[] shapes;
+
+    [SerializeField, Tooltip("図形を生成する位置")]
+    Transform spawnPoint;
+
+    [SerializeField, Tooltip("生成判定用のBoxサイズ")]
+    Vector2 checkSize = new Vector2(1f, 1f);
 
     // 現在選択中の図形
     HandShape _currentShape;
+
 
     void Start()
     {
