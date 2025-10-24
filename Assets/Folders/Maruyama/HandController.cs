@@ -18,6 +18,7 @@ public class HandController : MonoBehaviour
 
     [SerializeField] HandShape[] shapes;
     [SerializeField] Transform spawnPoint; // 生成位置
+    // public bool _isSpawned = false;
 
     // 現在選択中の図形
     HandShape _currentShape;
@@ -43,13 +44,26 @@ public class HandController : MonoBehaviour
         }
     }
 
-    // 引数なしメソッド
+    /// <summary>
+    /// 現在選択中の図形を生成する
+    /// </summary>
     public void SpawnCurrentShape()
     {
         if (_currentShape == null || spawnPoint == null) return;
 
+        // 生成位置に他のオブジェクトがあるかチェック
+        Collider2D hit = Physics2D.OverlapBox(spawnPoint.position,
+            _currentShape.shapePrefab.GetComponent<Collider2D>().bounds.size, 0f);
+
+        if (hit != null)
+        {
+            Debug.Log("生成位置に既存オブジェクトがあります");
+            return;
+        }
+
+        // 問題なければ生成
         Instantiate(_currentShape.shapePrefab, spawnPoint.position, Quaternion.identity);
+        // _isSpawned = true;
         Debug.Log($"{_currentShape.shapeName} を生成しました。");
-        // 生成位置にすでに図形があれば生成しない仕様にする
     }
 }

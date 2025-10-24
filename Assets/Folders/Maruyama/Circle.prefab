@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3012726279138824255}
   - component: {fileID: 4937264522461372012}
   - component: {fileID: 3036818082481115068}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,15 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fef172e911cd54c945891574f656aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldRect:
-    serializedVersion: 2
-    x: -5.09
-    y: -3
-    width: 10
-    height: 6
-  shapeLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!58 &4937264522461372012
 CircleCollider2D:
   m_ObjectHideFlags: 0
