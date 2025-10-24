@@ -6,9 +6,10 @@ using UnityEngine.EventSystems;
 /// 
 /// 【概要】
 /// - 図形をマウスでドラッグして移動できる。
-/// - 他の図形と重なっている場合は配置不可（赤色表示）。
+/// - 他の図形と重なっている場合は配置不可（灰色表示）。
 /// - 「Trash」タグを持つオブジェクトに重なってドロップした場合は削除。
-/// - 白:置ける 灰色:置けない 赤:消す
+/// - 白:置ける 灰色:置けない 赤:削除対象（ゴミ箱上）
+/// - ドラッグ中は最前面に表示される。
 /// 
 /// 【前提条件】
 /// - シーン内に EventSystem が存在すること。
@@ -19,11 +20,13 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    Vector3 _originPosition;   // ドラッグ開始位置
-    Collider2D _collider;      // 自身のCollider
-    SpriteRenderer _renderer;  // 色制御用
-    bool _canPut = true;       // 配置可能かどうかフラグ
-    bool _isOverTrash = false; // ゴミにするかどうかフラグ
+    Vector3 _originPosition;       // ドラッグ開始位置
+    Collider2D _collider;          // 自身のCollider
+    SpriteRenderer _renderer;      // 色制御用
+    bool _canPut = true;           // 配置可能かどうかフラグ
+    bool _isOverTrash = false;     // ゴミにするかどうかフラグ
+    int _defaultOrder;             // 元の描画順序
+    [SerializeField] int _dragOrder = 30; // ドラッグ中の最前面順序（他より高く設定）
 
     void Start()
     {
@@ -34,11 +37,21 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             Debug.LogWarning("EventSystem がシーン内に存在しません。");
     }
 
+    /// <summary>
+    /// ドラッグ開始時に元の位置と描画順序を保存し、最前面に持ってくる。
+    /// </summary>
     public void OnBeginDrag(PointerEventData eventData)
     {
+        Debug.Log($"OnBeginDrag: {name}");
+
         _originPosition = transform.position;
+        _defaultOrder = _renderer.sortingOrder;
+        _renderer.sortingOrder = _dragOrder; // 最前面に表示
     }
 
+    /// <summary>
+    /// ドラッグ中はマウスに追従し、他のオブジェクトとの重なりをチェック。
+    /// </summary>
     public void OnDrag(PointerEventData eventData)
     {
         // マウス位置に追従
@@ -60,7 +73,7 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             if (hit.CompareTag("Trash"))
             {
                 _isOverTrash = true;
-                _renderer.color = Color.red; // ゴミ箱上なら灰色
+                _renderer.color = Color.red;
                 return;
             }
 
@@ -69,12 +82,16 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             break;
         }
 
-        // カラー更新
         _renderer.color = _canPut ? Color.white : Color.grey;
     }
 
+    /// <summary>
+    /// ドラッグ終了時に配置状態を確定し、元の描画順序に戻す。
+    /// </summary>
     public void OnEndDrag(PointerEventData eventData)
     {
+        _renderer.sortingOrder = _defaultOrder; // 描画順序を元に戻す
+
         if (_isOverTrash)
         {
             Debug.Log("ゴミ箱に入ったため削除");
