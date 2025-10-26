@@ -28,6 +28,7 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     int _defaultOrder;             // 元の描画順序
     [SerializeField] int _dragOrder = 30; // ドラッグ中の最前面順序（他より高く設定）
 
+
     void Start()
     {
         _collider = GetComponent<Collider2D>();
@@ -42,8 +43,6 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     /// </summary>
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log($"OnBeginDrag: {name}");
-
         _originPosition = transform.position;
         _defaultOrder = _renderer.sortingOrder;
         _renderer.sortingOrder = _dragOrder; // 最前面に表示
@@ -54,12 +53,10 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     /// </summary>
     public void OnDrag(PointerEventData eventData)
     {
-        // マウス位置に追従
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(eventData.position);
         mousePos.z = 0;
         transform.position = mousePos;
 
-        // 重なりチェック
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, _collider.bounds.size, 0f);
 
         _canPut = true;
@@ -67,17 +64,13 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
         foreach (var hit in hits)
         {
-            if (hit == _collider) continue; // 自分自身は無視
-
-            // Trashタグの上にあるなら削除対象
+            if (hit == _collider) continue;
             if (hit.CompareTag("Trash"))
             {
                 _isOverTrash = true;
                 _renderer.color = Color.red;
                 return;
             }
-
-            // 他の図形と重なっているなら配置不可
             _canPut = false;
             break;
         }
@@ -90,24 +83,18 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     /// </summary>
     public void OnEndDrag(PointerEventData eventData)
     {
-        _renderer.sortingOrder = _defaultOrder; // 描画順序を元に戻す
+        _renderer.sortingOrder = _defaultOrder;
 
         if (_isOverTrash)
         {
-            Debug.Log("ゴミ箱に入ったため削除");
             Destroy(gameObject);
             return;
         }
 
         if (_canPut)
-        {
             Debug.Log("配置成功！");
-        }
         else
-        {
-            Debug.Log("配置できません");
             transform.position = _originPosition;
-        }
 
         _renderer.color = Color.white;
     }
