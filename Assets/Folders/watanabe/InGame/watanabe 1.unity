@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resultPanel: {fileID: 344893054}
   medalText: {fileID: 1755670931}
-  currentStageNumber: 1
+  currentStageNumber: 2
 --- !u!61 &1245857844
 BoxCollider2D:
   m_ObjectHideFlags: 0
