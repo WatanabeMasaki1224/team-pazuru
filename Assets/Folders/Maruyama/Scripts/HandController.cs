@@ -61,6 +61,7 @@ public class HandController : MonoBehaviour
     /// </summary>
     public void SpawnCurrentShape()
     {
+        if (GameManager.instance.CurrentState != GameState.Placing) return;
         if (_currentShape == null || spawnPoint == null) return;
 
         // 生成位置に判定用Boxを置いて重なりを確認
