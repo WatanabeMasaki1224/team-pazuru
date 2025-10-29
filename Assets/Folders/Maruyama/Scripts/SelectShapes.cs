@@ -1,70 +1,67 @@
+ï»¿// SelectShapes.cs
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// }Œ`‚ğƒhƒ‰ƒbƒO•ƒhƒƒbƒv‚Å§Œä‚·‚éƒRƒ“ƒ|[ƒlƒ“ƒgB
-/// 
-/// yŠT—vz
-/// - }Œ`‚ğƒ}ƒEƒX‚Åƒhƒ‰ƒbƒO‚µ‚ÄˆÚ“®‚Å‚«‚éB
-/// - ‘¼‚Ì}Œ`‚Æd‚È‚Á‚Ä‚¢‚éê‡‚Í”z’u•s‰ÂiŠDF•\¦jB
-/// - uTrashvƒ^ƒO‚ğ‚ÂƒIƒuƒWƒFƒNƒg‚Éd‚È‚Á‚Äƒhƒƒbƒv‚µ‚½ê‡‚ÍíœB
-/// - ”’:’u‚¯‚é ŠDF:’u‚¯‚È‚¢ Ô:íœ‘ÎÛiƒSƒ~” ãj
-/// - ‘I‘ğ’†: ‰©F‚Å˜g or –¾‚é‚­•\¦‚³‚ê‚é
-/// - ‰EƒNƒŠƒbƒN’·‰Ÿ‚µ‚Å‚ä‚Á‚­‚è‰ñ“]
-/// - ƒhƒ‰ƒbƒO’†‚ÍÅ‘O–Ê‚É•\¦‚³‚ê‚éB
-/// 
-/// y‘O’ñğŒz
-/// - ƒV[ƒ““à‚É EventSystem ‚ª‘¶İ‚·‚é‚±‚ÆB
-/// - ƒJƒƒ‰‚É Physics2DRaycaster ‚ªƒAƒ^ƒbƒ`‚³‚ê‚Ä‚¢‚é‚±‚ÆB
-/// - }Œ`ƒIƒuƒWƒFƒNƒg‚É Collider2D ‚Æ SpriteRenderer ‚ª‚ ‚é‚±‚ÆB
+/// å›³å½¢ã‚’ãƒ‰ãƒ©ãƒƒã‚°ï¼†ãƒ‰ãƒ­ãƒƒãƒ—ã§åˆ¶å¾¡ã™ã‚‹ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã€‚
+///Â 
+/// ã€æ¦‚è¦ã€‘
+/// - å›³å½¢ã‚’ãƒã‚¦ã‚¹ã§ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ç§»å‹•ã§ãã‚‹ã€‚
+/// - ä»–ã®å›³å½¢ã¨é‡ãªã£ã¦ã„ã‚‹å ´åˆã¯é…ç½®ä¸å¯ï¼ˆç°è‰²è¡¨ç¤ºï¼‰ã€‚
+/// - ã€ŒTrashã€ã‚¿ã‚°ã‚’æŒã¤ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«é‡ãªã£ã¦ãƒ‰ãƒ­ãƒƒãƒ—ã—ãŸå ´åˆã¯å‰Šé™¤ã€‚
+/// - ç™½:ç½®ã‘ã‚‹ ç°è‰²:ç½®ã‘ãªã„ èµ¤:å‰Šé™¤å¯¾è±¡ï¼ˆã‚´ãƒŸç®±ä¸Šï¼‰
+/// - é¸æŠä¸­: é»„è‰²ã§æ  or æ˜ã‚‹ãè¡¨ç¤ºã•ã‚Œã‚‹
+/// - å³ã‚¯ãƒªãƒƒã‚¯é•·æŠ¼ã—ã§ã‚†ã£ãã‚Šå›è»¢
+/// - ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã¯æœ€å‰é¢ã«è¡¨ç¤ºã•ã‚Œã‚‹ã€‚
+///Â 
+/// ã€å‰ææ¡ä»¶ã€‘
+/// - ã‚·ãƒ¼ãƒ³å†…ã« EventSystem ã¨ ShapeSelectionManager ãŒå­˜åœ¨ã™ã‚‹ã“ã¨ã€‚
 /// </summary>
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(ShapeVisualController))]
 public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    Vector3 _originPosition;       // ƒhƒ‰ƒbƒOŠJnˆÊ’u
-    Collider2D _collider;          // ©g‚ÌCollider
-    ShapeVisualController _visual; // FE•`‰æ‡ŠÇ—
-    bool _canPut = true;           // ”z’u‰Â”\‚©‚Ç‚¤‚©ƒtƒ‰ƒO
-    bool _isOverTrash = false;     // ƒSƒ~‚É‚·‚é‚©‚Ç‚¤‚©ƒtƒ‰ƒO
+    Vector3 _originPosition;       // ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹ä½ç½®
+    Collider2D _collider;          // è‡ªèº«ã®Collider
+    ShapeVisualController _visual; // è‰²ãƒ»æç”»é †ç®¡ç†
+    bool _canPut = true;           // é…ç½®å¯èƒ½ã‹ã©ã†ã‹ãƒ•ãƒ©ã‚°
+    bool _isOverTrash = false;     // ã‚´ãƒŸã«ã™ã‚‹ã‹ã©ã†ã‹ãƒ•ãƒ©ã‚°
 
-    bool _isSelected = false;      // ‘I‘ğó‘Ôƒtƒ‰ƒO
-    float _rotationSpeed = 90f;    // ‰ñ“]‘¬“xi“x/•bj
-    static SelectShapes _currentSelected; // Œ»İ‘I‘ğ’†‚Ì}Œ`
-    // ƒhƒ‰ƒbƒO’†‚©‚Ç‚¤‚©‚ğ”»’è‚·‚éƒtƒ‰ƒO
-    bool _isDragging = false;
+    // é¸æŠ/å›è»¢/ãƒ‰ãƒ©ãƒƒã‚°ã®åˆ¶å¾¡ç”¨ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
+    private bool _isSelected = false; // è‡ªèº«ã®ç¾åœ¨ã®é¸æŠçŠ¶æ…‹ (ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã‹ã‚‰è¨­å®šã•ã‚Œã‚‹)
+    private float _rotationSpeed = 90f;
+    private bool _isDragging = false;
+
+    // ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã¸ã®å‚ç…§
+    private ShapeSelectionManager _manager;
 
     void Start()
     {
         _collider = GetComponent<Collider2D>();
         _visual = GetComponent<ShapeVisualController>();
 
+        // ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã®å‚ç…§ã‚’å–å¾—
+        _manager = FindAnyObjectByType<ShapeSelectionManager>();
+        if (_manager == null) Debug.LogError("ShapeSelectionManager ãŒã‚·ãƒ¼ãƒ³å†…ã«å­˜åœ¨ã—ã¾ã›ã‚“ã€‚");
         if (FindAnyObjectByType<EventSystem>() == null)
-            Debug.LogWarning("EventSystem ‚ªƒV[ƒ““à‚É‘¶İ‚µ‚Ü‚¹‚ñB");
+            Debug.LogWarning("EventSystem ãŒã‚·ãƒ¼ãƒ³å†…ã«å­˜åœ¨ã—ã¾ã›ã‚“ã€‚");
+
+        _manager.SelectShape(this);
     }
 
-    void Update()
+    /// <summary>
+    /// ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã‹ã‚‰å‘¼ã°ã‚Œã‚‹ãŸã‚ã®å…¬é–‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+    /// è‡ªèº«ã®é¸æŠçŠ¶æ…‹ãƒ•ãƒ©ã‚°ã‚’æ›´æ–°ã—ã€ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã§ãªã‘ã‚Œã°è‰²ã‚’å³åº§ã«åæ˜ ã—ã¾ã™ã€‚
+    /// </summary>
+    public void SetSelectedState(bool isSelected)
     {
-        bool isPlacing = GameManager.instance.CurrentState == GameState.Placing;
+        _isSelected = isSelected;
 
-        // 1. Placingó‘Ô‚Å‚È‚¯‚ê‚Î‘S‚Ä‰ğœ
-        if (!isPlacing)
-        {
-            if (_isSelected)
-            {
-                _isSelected = false;
-                _visual.ResetColor();
-                if (_currentSelected == this) _currentSelected = null;
-            }
-            return;
-        }
-
-        // ƒhƒ‰ƒbƒO’†‚Å‚Í‚È‚¢ê‡‚Ì‚İA‘I‘ğ’†‚ÌF‚ğ§Œä‚·‚é
+        // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã§ãªã‘ã‚Œã°ã€ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã‹ã‚‰ã®æŒ‡ç¤ºã‚’ç›´ã¡ã«è‰²ã«åæ˜ 
         if (!_isDragging)
         {
-            // 2. ‘I‘ğ’†‚Ì‹ŠoƒtƒB[ƒhƒoƒbƒN‚ğİ’è
-            if (_isSelected)
+            if (isSelected)
             {
                 _visual.SetSelectionColor(true);
             }
@@ -73,10 +70,26 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
                 _visual.ResetColor();
             }
         }
+    }
 
-        // 3. ‘I‘ğ’†A‚©‚Âƒhƒ‰ƒbƒO’†‚Å‚È‚¢ê‡‚Ì‚İ‰ñ“]‰Â”\i‰EƒNƒŠƒbƒN’·‰Ÿ‚µj
+    void Update()
+    {
+        bool isPlacing = GameManager.instance.CurrentState == GameState.Placing;
+
+        // 1. PlacingçŠ¶æ…‹ã§ãªã‘ã‚Œã°å…¨ã¦è§£é™¤
+        if (!isPlacing)
+        {
+            if (_isSelected)
+            {
+                // ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼çµŒç”±ã§è§£é™¤ï¼ˆ_isSelectedã‚‚falseã«ãªã‚Šã€è‰²ãŒç™½ã«æˆ»ã‚‹ï¼‰
+                _manager.DeselectShape(this);
+            }
+            return;
+        }
+
+        // 2. é¸æŠä¸­ã€ã‹ã¤ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã§ãªã„å ´åˆã®ã¿å›è»¢å¯èƒ½ï¼ˆå³ã‚¯ãƒªãƒƒã‚¯é•·æŠ¼ã—ï¼‰
         if (_isSelected
-            && !_isDragging // ƒhƒ‰ƒbƒO’†‚Å‚È‚¢
+            && !_isDragging
             && Mouse.current != null
             && Mouse.current.rightButton.isPressed)
         {
@@ -85,43 +98,38 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
     }
 
     /// <summary>
-    /// ¶ƒNƒŠƒbƒN‚Å‘I‘ğ/”ñ‘I‘ğ‚ğØ‚è‘Ö‚¦‚éBi‰ñ“]E‰©F‰»‚ÌƒgƒŠƒK[j
+    /// å·¦ã‚¯ãƒªãƒƒã‚¯ã§é¸æŠ/éé¸æŠã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚
     /// </summary>
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Left) return;
 
-        // ˆÈ‘O‚Ì‘I‘ğ‚ğ‰ğœ
-        if (_currentSelected != null && _currentSelected != this)
-        {
-            _currentSelected._isSelected = false;
-            _currentSelected._visual.ResetColor();
-        }
-
-        // ©•ª‚ğ‘I‘ğ
-        _isSelected = true;
-        _currentSelected = this;
-        _visual.SetSelectionColor(true); // ƒNƒŠƒbƒN‚Æ“¯‚ÉF‚ğİ’è
+        // ã€ç°¡ç•¥åŒ–ã€‘æ’ä»–åˆ¶å¾¡ã‚’ãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã«ä¸€ä»»
+        _manager.SelectShape(this);
     }
 
     /// <summary>
-    /// ƒhƒ‰ƒbƒOŠJn‚ÉŒ³‚ÌˆÊ’u‚Æ•`‰æ‡˜‚ğ•Û‘¶‚µAÅ‘O–Ê‚É‚Á‚Ä‚­‚éB
-    /// ‚±‚Ì“_‚Å‰©F•\¦‚ğˆê“I‚É‰ğœ‚·‚éB
+    /// ãƒ‰ãƒ©ãƒƒã‚°é–‹å§‹æ™‚ã«å…ƒã®ä½ç½®ã¨æç”»é †åºã‚’ä¿å­˜ã—ã€æœ€å‰é¢ã«æŒã£ã¦ãã‚‹ã€‚
     /// </summary>
     public void OnBeginDrag(PointerEventData eventData)
     {
+        // é¸æŠä¸­ã§ãªã‘ã‚Œã°ã€ã“ã“ã§å‡¦ç†ã‚’çµ‚äº†ã—ã€ãƒ‰ãƒ©ãƒƒã‚°ã‚’ç„¡åŠ¹åŒ–
+        if (!_isSelected)
+        {
+            return;
+        }
+
         _originPosition = transform.position;
         _visual.SetDragOrder();
 
-        // y’Ç‰Ázƒhƒ‰ƒbƒOŠJn
         _isDragging = true;
 
-        // ˆê“I‚É‘I‘ğF‚ğƒŠƒZƒbƒg‚µ‚ÄAƒhƒ‰ƒbƒO—pƒtƒB[ƒhƒoƒbƒN‚ğ—Dæ
+        // ä¸€æ™‚çš„ã«é¸æŠè‰²ã‚’ãƒªã‚»ãƒƒãƒˆã—ã¦ã€ãƒ‰ãƒ©ãƒƒã‚°ç”¨ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯ã‚’å„ªå…ˆ
         _visual.ResetColor();
     }
 
     /// <summary>
-    /// ƒhƒ‰ƒbƒO’†‚Íƒ}ƒEƒX‚É’Ç]‚µA‘¼‚ÌƒIƒuƒWƒFƒNƒg‚Æ‚Ìd‚È‚è‚ğƒ`ƒFƒbƒNB
+    /// ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã¯ãƒã‚¦ã‚¹ã«è¿½å¾“ã—ã€ä»–ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã®é‡ãªã‚Šã‚’ãƒã‚§ãƒƒã‚¯ã€‚
     /// </summary>
     public void OnDrag(PointerEventData eventData)
     {
@@ -146,56 +154,39 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             break;
         }
 
-        // ƒhƒ‰ƒbƒO’†‚Íí‚ÉƒtƒB[ƒhƒoƒbƒNF‚ğ“K—p
+        // ãƒ‰ãƒ©ãƒƒã‚°ä¸­ã¯å¸¸ã«ãƒ•ã‚£ãƒ¼ãƒ‰ãƒãƒƒã‚¯è‰²ã‚’é©ç”¨
         _visual.SetFeedbackColor(_isOverTrash, _canPut);
     }
 
     /// <summary>
-    /// ƒhƒ‰ƒbƒOI—¹‚É”z’uó‘Ô‚ğŠm’è‚µAŒ³‚Ì•`‰æ‡˜‚É–ß‚·B
-    /// ÅŒã‚ÉA‰ñ“]E‘I‘ğ‰Â”\‚Èó‘Ôi‰©Fj‚É–ß‚·B
+    /// ãƒ‰ãƒ©ãƒƒã‚°çµ‚äº†æ™‚ã«é…ç½®çŠ¶æ…‹ã‚’ç¢ºå®šã—ã€å…ƒã®æç”»é †åºã«æˆ»ã™ã€‚
     /// </summary>
     public void OnEndDrag(PointerEventData eventData)
     {
-        // 1.ƒhƒ‰ƒbƒOI—¹ƒtƒ‰ƒO‚ğƒŠƒZƒbƒg
         _isDragging = false;
-
-        // 2.•`‰æ‡˜‚ğŒ³‚É–ß‚·
         _visual.ResetSortingOrder();
 
-        // 3.ƒSƒ~” ƒ`ƒFƒbƒNiÅ—Dæj
+        // 1. ã‚´ãƒŸç®±ãƒã‚§ãƒƒã‚¯ï¼ˆæœ€å„ªå…ˆï¼‰
         if (_isOverTrash)
         {
-            // static‚©‚ç©•ª‚ğ‰ğœ
-            if (_currentSelected == this)
-            {
-                _currentSelected = null;
-            }
-            Destroy(gameObject); // íœ
+            _manager.DeselectShape(this);
+            Destroy(gameObject);
             return;
         }
 
-        // 4.”z’u‰Â”Ûƒ`ƒFƒbƒN
+        // 2. é…ç½®å¯å¦ãƒã‚§ãƒƒã‚¯
         if (!_canPut)
         {
-            // ”z’u•s‰Â‚È‚çŒ³‚ÌˆÊ’u‚É–ß‚·
             transform.position = _originPosition;
         }
 
-        // 5.‘I‘ğó‘Ô‚ÆF‚ğ•œŒ³‚·‚é
+        // 3. é¸æŠçŠ¶æ…‹ã‚’å¾©å…ƒã™ã‚‹
         if (_isSelected)
         {
-            // ‘I‘ğó‘Ô‚ğˆÛ‚µA”r‘¼§Œä‚ğXV‚µ‚ÄF‚ğ•œŒ³
-            if (_currentSelected != null && _currentSelected != this)
-            {
-                _currentSelected._isSelected = false;
-                _currentSelected._visual.ResetColor();
-            }
-            _currentSelected = this;
-            _visual.SetSelectionColor(true);
+            _manager.SelectShape(this);
         }
         else
         {
-            // ”ñ‘I‘ğó‘Ô‚ğˆÛ‚µAƒfƒtƒHƒ‹ƒgF‚ğ•œŒ³
             _visual.ResetColor();
         }
     }

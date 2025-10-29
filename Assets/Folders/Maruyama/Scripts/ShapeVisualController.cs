@@ -8,8 +8,6 @@ public class ShapeVisualController : MonoBehaviour
 {
     SpriteRenderer _renderer;
     int _defaultOrder;
-
-    // ƒJƒvƒZƒ‹‰»
     int _dragOrder = 30;
 
     [Header("Color Settings")]
