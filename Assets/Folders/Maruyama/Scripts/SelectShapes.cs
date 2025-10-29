@@ -60,10 +60,10 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             return;
         }
 
-        // 【修正】ドラッグ中ではない場合のみ、選択中の色を制御する
+        // ドラッグ中ではない場合のみ、選択中の色を制御する
         if (!_isDragging)
         {
-            // 2. 選択中の視覚フィードバック（黄色）を設定
+            // 2. 選択中の視覚フィードバックを設定
             if (_isSelected)
             {
                 _visual.SetSelectionColor(true);
@@ -76,7 +76,7 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
 
         // 3. 選択中、かつドラッグ中でない場合のみ回転可能（右クリック長押し）
         if (_isSelected
-            && !_isDragging // 【修正】ドラッグ中でないことを追加
+            && !_isDragging // ドラッグ中でない
             && Mouse.current != null
             && Mouse.current.rightButton.isPressed)
         {
@@ -101,7 +101,7 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
         // 自分を選択
         _isSelected = true;
         _currentSelected = this;
-        _visual.SetSelectionColor(true); // クリックと同時に黄色を設定
+        _visual.SetSelectionColor(true); // クリックと同時に色を設定
     }
 
     /// <summary>
@@ -146,7 +146,7 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             break;
         }
 
-        // ドラッグ中は常にフィードバック色を適用（赤・灰・白）
+        // ドラッグ中は常にフィードバック色を適用
         _visual.SetFeedbackColor(_isOverTrash, _canPut);
     }
 
@@ -181,10 +181,10 @@ public class SelectShapes : MonoBehaviour, IDragHandler, IBeginDragHandler, IEnd
             transform.position = _originPosition;
         }
 
-        // 5.選択状態と色を復元する（ロジックは前回修正を維持）
+        // 5.選択状態と色を復元する
         if (_isSelected)
         {
-            // 選択状態を維持し、排他制御を更新して黄色を復元
+            // 選択状態を維持し、排他制御を更新して色を復元
             if (_currentSelected != null && _currentSelected != this)
             {
                 _currentSelected._isSelected = false;

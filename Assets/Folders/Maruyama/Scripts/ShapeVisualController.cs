@@ -10,7 +10,7 @@ public class ShapeVisualController : MonoBehaviour
     int _defaultOrder;
 
     // ƒJƒvƒZƒ‹‰»
-    [SerializeField] int _dragOrder = 30;
+    int _dragOrder = 30;
 
     [Header("Color Settings")]
     [SerializeField] Color _defaultColor = Color.white;
