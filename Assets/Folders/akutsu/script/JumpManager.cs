@@ -14,7 +14,7 @@ public class JumpManager: MonoBehaviour
 		if(collision.tag == "Ball")
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-			rb.linearVelocity = new Vector2(rb.linearVelocityX, _jumpForce);
+			rb.linearVelocity = new Vector2(rb.linearVelocityX, _jumpForce) * transform.up;
 		}
 	}
 }
