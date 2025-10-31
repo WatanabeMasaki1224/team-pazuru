@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageNumber: watanabe
+  stageNumber: InGame_tutorial
 --- !u!114 &1271335648
 MonoBehaviour:
   m_ObjectHideFlags: 0
