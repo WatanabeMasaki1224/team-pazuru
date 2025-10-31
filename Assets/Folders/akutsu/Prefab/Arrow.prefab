@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6530149601774863986}
   - component: {fileID: 4104856216949133144}
   - component: {fileID: -5033125601124187164}
+  - component: {fileID: 8503556162717851169}
   m_Layer: 0
   m_Name: Arrow
-  m_TagString: Ball
+  m_TagString: Shape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.6206925, w: 0.78405416}
   m_LocalPosition: {x: -4.89, y: -2.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,12 +80,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1483977273998293082, guid: 12679b6afc77e104ebc293d6095ad136, type: 3}
+  m_Sprite: {fileID: 2626673899491593324, guid: 25d8a0918a99e7942aed2b3d602964b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.9822222, y: 0.7888889}
+  m_Size: {x: 1.67, y: 2.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -128,8 +129,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9822222, y: 0.7888889}
-    newSize: {x: 0.9822222, y: 0.7888889}
+    oldSize: {x: 1.67, y: 2.17}
+    newSize: {x: 1.67, y: 2.17}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -161,4 +162,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6fef172e911cd54c945891574f656aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dragOrder: 30
+--- !u!114 &8503556162717851169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947919436455944280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca59dd6c05fce8741bfa6c3c8574264e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _canPutColor: {r: 1, g: 1, b: 1, a: 1}
+  _cannotPutColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _trashColor: {r: 1, g: 0, b: 0, a: 1}
+  _selectedColor: {r: 1, g: 1, b: 0.5, a: 1}
