@@ -14,7 +14,20 @@ public class JumpManager: MonoBehaviour
 		if(collision.tag == "Ball")
         {
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
-			rb.linearVelocity = new Vector2(rb.linearVelocityX, _jumpForce) * transform.up;
-		}
+            Vector2 v = rb.linearVelocity;
+
+            // 上向きジャンプ台の場合：落下中に跳ね返す
+            if (v.y < 0)
+            {
+                v.y = Mathf.Abs(v.y); // Y速度を正にして上に跳ねる
+            }
+            // 下向きジャンプ台の場合：上昇中に跳ね返す
+            else if (v.y > 0)
+            {
+                v.y = -Mathf.Abs(v.y); // Y速度を負にして下に跳ねる
+            }
+
+            rb.linearVelocity = v.normalized * _jumpForce;
+        }
 	}
 }
