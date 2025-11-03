@@ -40,5 +40,6 @@ public class Dead : MonoBehaviour
                 _gameOverText.text = "ゲームオーバー";
             }
         }
+        Destroy(this.gameObject);
     }
 }
