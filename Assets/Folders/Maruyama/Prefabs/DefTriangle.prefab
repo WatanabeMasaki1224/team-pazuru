@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 2615194392144344866}
   - component: {fileID: 4016666423942622506}
   - component: {fileID: 2894185431682360848}
-  - component: {fileID: 3347919745770386524}
-  - component: {fileID: -1768885935184577500}
-  - component: {fileID: 271986489467413698}
   m_Layer: 0
   m_Name: DefTriangle
   m_TagString: Untagged
@@ -141,44 +138,3 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
---- !u!114 &3347919745770386524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5542862972471113913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 888e83e8a90bbea429ced2a14a92fd5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-1768885935184577500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5542862972471113913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6fef172e911cd54c945891574f656aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &271986489467413698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5542862972471113913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca59dd6c05fce8741bfa6c3c8574264e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  _canPutColor: {r: 1, g: 1, b: 1, a: 1}
-  _cannotPutColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _trashColor: {r: 1, g: 0, b: 0, a: 1}
-  _selectedColor: {r: 1, g: 1, b: 0.5, a: 1}
