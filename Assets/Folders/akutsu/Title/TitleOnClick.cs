@@ -21,7 +21,7 @@ public class TitleOnClick : MonoBehaviour
 		}
 	}
 
-	public bool IsSceneInBuildSettings(string sceneName)
+	bool IsSceneInBuildSettings(string sceneName)
 	{
 		int buildIndex = SceneUtility.GetBuildIndexByScenePath(sceneName);
 
