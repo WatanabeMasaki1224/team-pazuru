@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class TitleOnClick : MonoBehaviour
@@ -9,6 +10,12 @@ public class TitleOnClick : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
+			if (EventSystem.current.IsPointerOverGameObject())
+			{
+				Debug.Log("クリックはUI上で発生しました。");
+				return;
+			}
+
 			if (IsSceneInBuildSettings(_nextSceneName))
 			{
 				Debug.Log(_nextSceneName + " が見つかりました。シーンをロードします。");
