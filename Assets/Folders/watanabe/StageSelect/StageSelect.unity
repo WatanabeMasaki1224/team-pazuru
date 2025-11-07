@@ -529,85 +529,6 @@ MonoBehaviour:
   hoverScale: 0.98
   hoverDuration: 0.2
   easeType: 6
---- !u!1 &344234758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 344234759}
-  - component: {fileID: 344234761}
-  - component: {fileID: 344234760}
-  m_Layer: 5
-  m_Name: stage1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &344234759
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344234758}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1271335646}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &344234760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344234758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: stage1
---- !u!222 &344234761
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344234758}
-  m_CullTransparentMesh: 1
 --- !u!1 &518977110
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +679,8 @@ GameObject:
   - component: {fileID: 572762667}
   - component: {fileID: 572762666}
   - component: {fileID: 572762670}
+  - component: {fileID: 572762672}
+  - component: {fileID: 572762671}
   m_Layer: 5
   m_Name: (B)Stage5
   m_TagString: Untagged
@@ -898,6 +821,54 @@ MonoBehaviour:
   hoverScale: 1.05
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &572762671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572762664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2a2c15d7d598845bc2a570f17d6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 572762668}
+  lockedColor: {r: 0.78431374, g: 0.49019608, b: 0.49019608, a: 1}
+  lockedAlpha: 0.1
+  stageNumber: 5
+  onStageSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 572762670}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &572762672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572762664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b08474fd958f4bb640190d8c31611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 1857380476}
+  lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  lockedAlpha: 0.1
 --- !u!1 &580484060
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,6 +883,8 @@ GameObject:
   - component: {fileID: 580484063}
   - component: {fileID: 580484062}
   - component: {fileID: 580484066}
+  - component: {fileID: 580484068}
+  - component: {fileID: 580484067}
   m_Layer: 5
   m_Name: (B)Stage8
   m_TagString: Untagged
@@ -1011,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85660374, g: 0.75371295, b: 0.52204335, a: 0.5294118}
+  m_Color: {r: 0.5882353, g: 0.3137255, b: 0.3137255, a: 0.5294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1052,6 +1025,54 @@ MonoBehaviour:
   hoverScale: 1.05
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &580484067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580484060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2a2c15d7d598845bc2a570f17d6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 580484064}
+  lockedColor: {r: 0.78431374, g: 0.49019608, b: 0.49019608, a: 1}
+  lockedAlpha: 0.1
+  stageNumber: 8
+  onStageSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 580484066}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &580484068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580484060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b08474fd958f4bb640190d8c31611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 913242408}
+  lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  lockedAlpha: 0.1
 --- !u!1 &597395691
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1087,8 @@ GameObject:
   - component: {fileID: 597395694}
   - component: {fileID: 597395693}
   - component: {fileID: 597395697}
+  - component: {fileID: 597395699}
+  - component: {fileID: 597395698}
   m_Layer: 5
   m_Name: (B)Stage7
   m_TagString: Untagged
@@ -1165,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85660374, g: 0.75371295, b: 0.52204335, a: 0.5294118}
+  m_Color: {r: 0.8415094, g: 0.7468046, b: 0.5318974, a: 0.5294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1206,6 +1229,54 @@ MonoBehaviour:
   hoverScale: 1.05
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &597395698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597395691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2a2c15d7d598845bc2a570f17d6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 597395695}
+  lockedColor: {r: 0.78431374, g: 0.49019608, b: 0.49019608, a: 1}
+  lockedAlpha: 0.1
+  stageNumber: 7
+  onStageSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 597395697}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &597395699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597395691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b08474fd958f4bb640190d8c31611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 1669267810}
+  lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  lockedAlpha: 0.1
 --- !u!1 &613830871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1727,8 @@ GameObject:
   - component: {fileID: 1011523791}
   - component: {fileID: 1011523790}
   - component: {fileID: 1011523794}
+  - component: {fileID: 1011523795}
+  - component: {fileID: 1011523796}
   m_Layer: 5
   m_Name: (B)Stage2
   m_TagString: Untagged
@@ -1755,7 +1828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85660374, g: 0.75371295, b: 0.52204335, a: 0.5294118}
+  m_Color: {r: 0.5882353, g: 0.3137255, b: 0.43137255, a: 0.5294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1796,6 +1869,54 @@ MonoBehaviour:
   hoverScale: 1.05
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &1011523795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011523788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b08474fd958f4bb640190d8c31611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 1831152988}
+  lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  lockedAlpha: 0.1
+--- !u!114 &1011523796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011523788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2a2c15d7d598845bc2a570f17d6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 1011523792}
+  lockedColor: {r: 0.78431374, g: 0.49019608, b: 0.49019608, a: 1}
+  lockedAlpha: 0.1
+  stageNumber: 2
+  onStageSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1011523794}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1049970009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,7 +2171,6 @@ RectTransform:
   - {fileID: 1896998017}
   - {fileID: 597395692}
   - {fileID: 580484061}
-  - {fileID: 1271335646}
   - {fileID: 1880424056}
   - {fileID: 518977111}
   - {fileID: 299095990}
@@ -2096,6 +2216,8 @@ GameObject:
   - component: {fileID: 1189172536}
   - component: {fileID: 1189172535}
   - component: {fileID: 1189172539}
+  - component: {fileID: 1189172541}
+  - component: {fileID: 1189172540}
   m_Layer: 5
   m_Name: (B)Stage4
   m_TagString: Untagged
@@ -2195,7 +2317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85660374, g: 0.75371295, b: 0.52204335, a: 0.5294118}
+  m_Color: {r: 0.5882353, g: 0.3137255, b: 0.3137255, a: 0.5294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2236,6 +2358,54 @@ MonoBehaviour:
   hoverScale: 1.05
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &1189172540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189172533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2a2c15d7d598845bc2a570f17d6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 1189172537}
+  lockedColor: {r: 0.78431374, g: 0.49019608, b: 0.49019608, a: 1}
+  lockedAlpha: 0.1
+  stageNumber: 4
+  onStageSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1189172539}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1189172541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189172533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b08474fd958f4bb640190d8c31611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 1741727912}
+  lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  lockedAlpha: 0.1
 --- !u!1 &1253395962
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,141 +2541,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253395962}
-  m_CullTransparentMesh: 1
---- !u!1 &1271335645
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1271335646}
-  - component: {fileID: 1271335650}
-  - component: {fileID: 1271335649}
-  - component: {fileID: 1271335648}
-  - component: {fileID: 1271335647}
-  m_Layer: 5
-  m_Name: Stage1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1271335646
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271335645}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 344234759}
-  m_Father: {fileID: 1180776040}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -698, y: -336}
-  m_SizeDelta: {x: 200, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1271335647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271335645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: 
---- !u!114 &1271335648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271335645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1271335649}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1271335649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271335645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1271335650
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1271335645}
   m_CullTransparentMesh: 1
 --- !u!1 &1335614929
 GameObject:
@@ -4262,6 +4297,8 @@ GameObject:
   - component: {fileID: 1896998019}
   - component: {fileID: 1896998018}
   - component: {fileID: 1896998022}
+  - component: {fileID: 1896998024}
+  - component: {fileID: 1896998023}
   m_Layer: 5
   m_Name: (B)Stage6
   m_TagString: Untagged
@@ -4361,7 +4398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85660374, g: 0.75371295, b: 0.52204335, a: 0.5294118}
+  m_Color: {r: 0.5882353, g: 0.78431374, b: 0.5294118, a: 0.5294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4402,6 +4439,54 @@ MonoBehaviour:
   hoverScale: 1.05
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &1896998023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896998016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2a2c15d7d598845bc2a570f17d6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 1896998020}
+  lockedColor: {r: 0.78431374, g: 0.49019608, b: 0.49019608, a: 1}
+  lockedAlpha: 0.1
+  stageNumber: 6
+  onStageSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1896998023}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1896998024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896998016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b08474fd958f4bb640190d8c31611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 955574779}
+  lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  lockedAlpha: 0.1
 --- !u!1 &2010394587
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,6 +4866,8 @@ GameObject:
   - component: {fileID: 2065947140}
   - component: {fileID: 2065947139}
   - component: {fileID: 2065947143}
+  - component: {fileID: 2065947145}
+  - component: {fileID: 2065947144}
   m_Layer: 5
   m_Name: (B)Stage3
   m_TagString: Untagged
@@ -4880,7 +4967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85660374, g: 0.75371295, b: 0.52204335, a: 0.5294118}
+  m_Color: {r: 0.5937694, g: 0.735849, b: 0.45400494, a: 0.5294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4921,6 +5008,54 @@ MonoBehaviour:
   hoverScale: 1.05
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &2065947144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065947137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2a2c15d7d598845bc2a570f17d6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 2065947141}
+  lockedColor: {r: 0.78431374, g: 0.49019608, b: 0.49019608, a: 1}
+  lockedAlpha: 0.1
+  stageNumber: 3
+  onStageSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2065947143}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2065947145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065947137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a84b08474fd958f4bb640190d8c31611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUnlocked: 0
+  targetImage: {fileID: 613830873}
+  lockedColor: {r: 0, g: 0, b: 0, a: 1}
+  lockedAlpha: 0.1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

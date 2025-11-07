@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// ステージのクリア状況に応じて星の見た目を切り替える。
 /// </summary>
-public class StageStar : UnlockableUI
+public class UnlockStar : UnlockableUI
 {
     protected override void Start()
     {
