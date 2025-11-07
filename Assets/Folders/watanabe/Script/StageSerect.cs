@@ -5,21 +5,22 @@ public class StageSerect : MonoBehaviour
 {
     public Button[] StageButton;
 
-    void Start()
+    void Awake()
     {
         int unlockedStage = PlayerPrefs.GetInt("UnlockedStage", 1);
+        Debug.Log(PlayerPrefs.GetInt("UnlockedStage"));
 
         for (int i = 0; i < StageButton.Length; i++)
         {
             if(i < unlockedStage)
             {
                 StageButton[i].interactable = true;
-                StageButton[i].image.color = Color.white;
+                // StageButton[i].image.color = Color.white;
             }
             else
             {
                 StageButton[i].interactable = false;
-                StageButton[i].image.color = Color.black;
+                // StageButton[i].image.color = Color.black;
             }
         }
     }
@@ -30,7 +31,7 @@ public class StageSerect : MonoBehaviour
 
         if(clearedStage >=  unlockedStage)
         {
-            PlayerPrefs.SetInt("UnlockedStage" , clearedStage + 1 );
+            PlayerPrefs.SetInt("UnlockedStage", clearedStage + 1 );
             PlayerPrefs.Save();
             Debug.Log("ステージ" + (clearedStage + 1) + "が解放された");
         }
@@ -43,6 +44,4 @@ public class StageSerect : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("ステージ解放状態をリセットしました");
     }
-
-
 }

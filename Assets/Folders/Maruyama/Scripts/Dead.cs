@@ -37,8 +37,9 @@ public class Dead : MonoBehaviour
             //リザルト画面に表示
             if (_gameOverText != null)
             {
-                _gameOverText.text = "ゲームオーバー";
+                // _gameOverText.text = "ゲームオーバー";
             }
         }
+        Destroy(this.gameObject);
     }
 }

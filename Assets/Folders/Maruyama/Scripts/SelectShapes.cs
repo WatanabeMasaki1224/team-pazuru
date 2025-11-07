@@ -1,5 +1,4 @@
-﻿// SelectShapes.cs
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 

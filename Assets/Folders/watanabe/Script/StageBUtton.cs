@@ -1,24 +1,29 @@
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class StageBUtton : MonoBehaviour
+/// <summary>
+/// 各ステージボタンを管理し、
+/// 押下時に指定されたシーンをロードする。
+/// </summary>
+[RequireComponent(typeof(Button))]
+public class StageButton : MonoBehaviour
 {
-    public string stageNumber;  //シーン名を設定
+    [SerializeField] string sceneName;
 
-    private void Start()
+    void Start()
     {
-        Button btn = GetComponent<Button>();
-        
-        if (btn != null)
-        {
-            btn.onClick.AddListener(OnStageSelected);
-        }
+        GetComponent<Button>().onClick.AddListener(OnStageSelected);
     }
 
     void OnStageSelected()
     {
-        SceneManager.LoadScene(stageNumber);
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            Debug.LogWarning($"{name} にシーン名が設定されていません。");
+            return;
+        }
+
+        SceneManager.LoadScene(sceneName);
     }
 }
