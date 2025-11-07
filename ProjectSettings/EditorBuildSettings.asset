@@ -15,10 +15,10 @@ EditorBuildSettings:
     path: Assets/Folders/Maruyama/Scenes/InGame_tutorial.unity
     guid: 2f22d3895c3b86546a3de1f8148b8fc6
   - enabled: 0
-    path: Assets/Folders/watanabe/InGame/watanabe.unity
+    path: Assets/Folders/watanabe/Scenes/watanabe.unity
     guid: 8a034f613fe084a49ba048fe9d2d2e1a
   - enabled: 0
-    path: Assets/Folders/watanabe/InGame/watanabe 1.unity
+    path: Assets/Folders/watanabe/Scenes/watanabe 1.unity
     guid: 8c9a66dc8bc2a184f875d1f176a8afb5
   - enabled: 1
     path: Assets/Folders/akutsu/Title/Title.unity
