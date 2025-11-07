@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Trash
+  - Shape
   layers:
   - Default
   - TransparentFX
