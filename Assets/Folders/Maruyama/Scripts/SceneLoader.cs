@@ -1,18 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
-using UnityEngine.UI;
 
 /// <summary>
-/// シーン遷移時に中心から広がる・閉じるフェード演出を行うシングルトン。
-/// DontDestroyOnLoadでシーンを跨いでも破棄されない。
+/// シーン遷移時に指定色のフェードイン・フェードアウトを行うシングルトン。
+/// Panel(Image)の色をそのまま使う
 /// </summary>
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance { get; private set; }
 
     [SerializeField] Image fadeImage;
-    [SerializeField] float duration = 0.8f;
+    [SerializeField] float duration = 1.0f;
 
     void Awake()
     {
@@ -21,23 +21,23 @@ public class SceneLoader : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        var c = fadeImage.color;
+        fadeImage.color = new Color(c.r, c.g, c.b, 0f);
     }
 
     void Start()
     {
-        // 起動時はフェードイン
         FadeIn();
     }
 
     public void FadeOutAndLoad(string sceneName)
     {
-        fadeImage.transform.localScale = Vector3.zero;
         fadeImage.gameObject.SetActive(true);
-        fadeImage.transform
-            .DOScale(Vector3.one * 2f, duration)
-            .SetEase(Ease.InOutQuad)
+        fadeImage.DOFade(1f, duration).SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
                 SceneManager.LoadScene(sceneName);
@@ -47,11 +47,10 @@ public class SceneLoader : MonoBehaviour
 
     public void FadeIn()
     {
-        fadeImage.transform.localScale = Vector3.one * 2f;
-        fadeImage.gameObject.SetActive(true);
-        fadeImage.transform
-            .DOScale(Vector3.zero, duration)
-            .SetEase(Ease.InOutQuad)
+        var c = fadeImage.color;
+        fadeImage.color = new Color(c.r, c.g, c.b, 1f);
+
+        fadeImage.DOFade(0f, duration).SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
                 fadeImage.gameObject.SetActive(false);
