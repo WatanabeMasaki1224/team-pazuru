@@ -23,7 +23,7 @@ public class ButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPointerEx
     Tweener _colorTween;
     Tweener _scaleTween;
 
-    void Awake()
+    void Start()
     {
         _image = GetComponent<Image>();
         _defaultScale = transform.localScale;

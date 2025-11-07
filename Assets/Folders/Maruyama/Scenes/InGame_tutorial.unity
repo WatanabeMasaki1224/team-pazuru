@@ -886,7 +886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageNumber: StageSelect
+  sceneName: StageSelect
 --- !u!1 &519566429
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resultPanel: {fileID: 659526318}
   medalText: {fileID: 464380019}
-  currentStageNumber: 0
+  currentStageNumber: 1
 --- !u!212 &519566432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageNumber: StageSelect
+  sceneName: 
 --- !u!114 &568244380
 MonoBehaviour:
   m_ObjectHideFlags: 0
