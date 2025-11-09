@@ -13,6 +13,7 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] Image fadeImage;
     [SerializeField] float duration = 1.0f;
+    [SerializeField] Ease easeType = Ease.OutQuad;
 
     void Awake()
     {
@@ -50,7 +51,7 @@ public class SceneLoader : MonoBehaviour
         var c = fadeImage.color;
         fadeImage.color = new Color(c.r, c.g, c.b, 1f);
 
-        fadeImage.DOFade(0f, duration).SetEase(Ease.InOutQuad)
+        fadeImage.DOFade(0f, duration).SetEase(easeType)
             .OnComplete(() =>
             {
                 fadeImage.gameObject.SetActive(false);
