@@ -182,6 +182,6 @@ public class Goal : MonoBehaviour
             yield return null;
         }
 
-        newMedal.transform.position = targetScale; 
+        // newMedal.transform.position = targetScale; 
     }
 }

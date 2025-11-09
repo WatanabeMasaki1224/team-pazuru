@@ -24,6 +24,11 @@ public class StageButton : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene(sceneName);
+        // フェードアウト遷移
+        if (SceneLoader.Instance != null)
+            SceneLoader.Instance.FadeOutAndLoad(sceneName);
+        else
+            SceneManager.LoadScene(sceneName); // 念のためフォールバック
     }
+
 }

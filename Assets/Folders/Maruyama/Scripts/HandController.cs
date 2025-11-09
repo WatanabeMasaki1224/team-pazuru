@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 /// <summary>
 /// 空のHandManagerを作成してアタッチ
-/// Image UI をクリックするとインスペクターで設定した図形プレハブが生成
+/// UIオブジェクトをクリックするとインスペクターで設定した図形プレハブが生成
 /// この処理は State が Placing のときだけ行われるようにする 
 /// </summary>
 public class HandController : MonoBehaviour
@@ -18,8 +18,8 @@ public class HandController : MonoBehaviour
         [Tooltip("生成する図形のPrefab")]
         public GameObject shapePrefab;
 
-        [Tooltip("手札UIに対応するImage")]
-        public Image imageUI;
+        [Tooltip("手札UIに対応するUIオブジェクト（ボタンなど）")]
+        public GameObject uiObject;
     }
 
     [SerializeField, Tooltip("手札の配列。Inspectorで設定する")]
@@ -34,17 +34,16 @@ public class HandController : MonoBehaviour
     // 現在選択中の図形
     HandShape _currentShape;
 
-
     void Start()
     {
         foreach (var shape in shapes)
         {
-            if (shape.imageUI != null)
+            if (shape.uiObject != null)
             {
-                // OnClickEvent を取得または追加
-                var clickComponent = shape.imageUI.GetComponent<OnClickEvent>();
+                // OnClickEvent コンポーネントを取得または追加
+                var clickComponent = shape.uiObject.GetComponent<OnClickEvent>();
                 if (clickComponent == null)
-                    clickComponent = shape.imageUI.gameObject.AddComponent<OnClickEvent>();
+                    clickComponent = shape.uiObject.AddComponent<OnClickEvent>();
 
                 // UnityEvent を作って SpawnCurrentShape を呼ぶように登録
                 UnityEvent e = new UnityEvent();
