@@ -577,6 +577,7 @@ GameObject:
   - component: {fileID: 385686731}
   - component: {fileID: 385686733}
   - component: {fileID: 385686732}
+  - component: {fileID: 385686734}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -645,6 +646,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385686730}
   m_CullTransparentMesh: 1
+--- !u!114 &385686734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385686730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3296da74922b3bf41bb6791f8fc4ec48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectScene: {fileID: 0}
 --- !u!1 &406324155
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +865,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 922797065}
+        m_TargetAssemblyTypeName: InGamePauseManager, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &454230434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,7 +997,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 460305831}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 385686734}
+        m_TargetAssemblyTypeName: MenuSwitchManager, Assembly-CSharp
+        m_MethodName: OnReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &460305831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1550,6 +1588,7 @@ GameObject:
   - component: {fileID: 922797064}
   - component: {fileID: 922797063}
   - component: {fileID: 922797062}
+  - component: {fileID: 922797065}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1632,6 +1671,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 922797065}
+        m_TargetAssemblyTypeName: InGamePauseManager, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &922797063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1670,6 +1721,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922797060}
   m_CullTransparentMesh: 1
+--- !u!114 &922797065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922797060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 958633ee397eab04786b7452cbf2c167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024865967
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,7 +2567,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1989530540}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 385686734}
+        m_TargetAssemblyTypeName: MenuSwitchManager, Assembly-CSharp
+        m_MethodName: OnSelectScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1989530540
 MonoBehaviour:
   m_ObjectHideFlags: 0
