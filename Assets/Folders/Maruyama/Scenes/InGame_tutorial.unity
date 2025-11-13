@@ -1676,6 +1676,7 @@ GameObject:
   - component: {fileID: 791079873}
   - component: {fileID: 791079872}
   - component: {fileID: 791079875}
+  - component: {fileID: 791079876}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -1813,6 +1814,19 @@ MonoBehaviour:
   hoverScale: 1.0001
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &791079876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791079870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4b8adfc2888544fa2bf93165c00e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeStates: 01000000
 --- !u!1 &889894714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,6 +3367,7 @@ GameObject:
   - component: {fileID: 1916736498}
   - component: {fileID: 1916736497}
   - component: {fileID: 1916736500}
+  - component: {fileID: 1916736501}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -3490,6 +3505,19 @@ MonoBehaviour:
   hoverScale: 1.0001
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &1916736501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916736495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4b8adfc2888544fa2bf93165c00e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeStates: 00000000
 --- !u!1001 &1945372388
 PrefabInstance:
   m_ObjectHideFlags: 0
