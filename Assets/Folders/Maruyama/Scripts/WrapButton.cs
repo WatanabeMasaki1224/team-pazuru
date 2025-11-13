@@ -23,18 +23,16 @@ public class WrapButton : MonoBehaviour
         _buttonInteraction = GetComponent<ButtonInteraction>();
         _button = GetComponent<Button>();
 
-        // 初期状態を設定
-        if (GameManager.instance != null)
-        {
-            _lastState = GameManager.instance.CurrentState;
-            CheckAndUpdateState(GameManager.instance.CurrentState);
-        }
+        _button.interactable = false;
+        _buttonInteraction.enabled = false;
+        _lastState = GameManager.instance.CurrentState;
+        CheckAndUpdateState(GameManager.instance.CurrentState);
     }
 
     void Update()
     {
         // GameManagerの状態が変わったかチェック
-        if (GameManager.instance != null && GameManager.instance.CurrentState != _lastState)
+        if (GameManager.instance.CurrentState != _lastState)
         {
             _lastState = GameManager.instance.CurrentState;
             CheckAndUpdateState(_lastState);
