@@ -2,10 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using System;
 
-/// <summary>
-/// ホバー時に色とスケールをDOTweenでアニメーション
-/// </summary>
 [RequireComponent(typeof(Image))]
 public class ButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -16,6 +14,12 @@ public class ButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [SerializeField] float hoverScale = 1.05f;
     [SerializeField] float hoverDuration = 0.2f;
     [SerializeField] Ease easeType = Ease.OutQuad;
+
+    [Header("ステージ情報")]
+    [SerializeField] int stageNumber;
+    [SerializeField] int bestMoveCount;
+
+    public static event Action<int, int> OnStageHovered;  // stageNumber, moveCount を通知
 
     Image _image;
     Color normalColor;
@@ -32,23 +36,32 @@ public class ButtonInteraction : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_image == null) return;
-
-        _colorTween?.Kill();
-        _colorTween = _image.DOColor(hoverColor, hoverDuration).SetEase(easeType);
-
-        _scaleTween?.Kill();
-        _scaleTween = transform.DOScale(_defaultScale * hoverScale, hoverDuration).SetEase(easeType);
+        Animate(true);
+        OnStageHovered?.Invoke(stageNumber, bestMoveCount);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        Animate(false);
+        OnStageHovered?.Invoke(-1, -1); // UIをリセット
+    }
+
+    private void Animate(bool isHover)
+    {
         if (_image == null) return;
 
         _colorTween?.Kill();
-        _colorTween = _image.DOColor(normalColor, hoverDuration).SetEase(easeType);
-
         _scaleTween?.Kill();
-        _scaleTween = transform.DOScale(_defaultScale, hoverDuration).SetEase(easeType);
+
+        if (isHover)
+        {
+            _colorTween = _image.DOColor(hoverColor, hoverDuration).SetEase(easeType);
+            _scaleTween = transform.DOScale(_defaultScale * hoverScale, hoverDuration).SetEase(easeType);
+        }
+        else
+        {
+            _colorTween = _image.DOColor(normalColor, hoverDuration).SetEase(easeType);
+            _scaleTween = transform.DOScale(_defaultScale, hoverDuration).SetEase(easeType);
+        }
     }
 }

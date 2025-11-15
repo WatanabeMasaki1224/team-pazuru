@@ -343,16 +343,16 @@ RectTransform:
   m_GameObject: {fileID: 233095362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 16.461147, y: 16.461147, z: 16.461147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1779118805}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -260}
+  m_SizeDelta: {x: 216.31, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &233095364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,16 +375,16 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 207
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 207
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: GameOver
 --- !u!222 &233095365
@@ -487,6 +487,10 @@ PrefabInstance:
     - target: {fileID: 69637100402914627, guid: d0b708874d629c9498f18a40cab706c0, type: 3}
       propertyPath: m_Name
       value: dast
+      objectReference: {fileID: 0}
+    - target: {fileID: 69637100402914627, guid: d0b708874d629c9498f18a40cab706c0, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 69637100402914627, guid: d0b708874d629c9498f18a40cab706c0, type: 3}
       propertyPath: m_TagString
@@ -901,7 +905,7 @@ MonoBehaviour:
   clearText: {fileID: 2050171115}
   buttonGroup: {fileID: 600365216}
   currentStageNumber: 1
-  shapeLimit: 5
+  shapeLimit: 1
   blackMedal: {fileID: 1945372390}
   yellowMedal: {fileID: 790795839}
   newMedal: {fileID: 2074652357}
@@ -1672,6 +1676,7 @@ GameObject:
   - component: {fileID: 791079873}
   - component: {fileID: 791079872}
   - component: {fileID: 791079875}
+  - component: {fileID: 791079876}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -1809,6 +1814,19 @@ MonoBehaviour:
   hoverScale: 1.0001
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &791079876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791079870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4b8adfc2888544fa2bf93165c00e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeStates: 01000000
 --- !u!1 &889894714
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,9 +3140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9622642, g: 0.8720675, b: 0.81883234, a: 0.3254902}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3349,6 +3367,7 @@ GameObject:
   - component: {fileID: 1916736498}
   - component: {fileID: 1916736497}
   - component: {fileID: 1916736500}
+  - component: {fileID: 1916736501}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -3486,6 +3505,19 @@ MonoBehaviour:
   hoverScale: 1.0001
   hoverDuration: 0.2
   easeType: 6
+--- !u!114 &1916736501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916736495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4b8adfc2888544fa2bf93165c00e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activeStates: 00000000
 --- !u!1001 &1945372388
 PrefabInstance:
   m_ObjectHideFlags: 0
