@@ -11,6 +11,7 @@ public class InGamePauseManager : MonoBehaviour
 	public void Pause()
 	{
 		OnPause?.Invoke();
+		Debug.Log("ハンバーガー");
 	}
 
 	public void Resume()
