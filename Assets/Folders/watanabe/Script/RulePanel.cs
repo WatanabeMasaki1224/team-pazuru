@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class RulePanel : MonoBehaviour
 {
-    [Header("UIéQè∆")]
-    public GameObject rulePanel;
-    public GameObject[] pages;
-    private int currentPage = 0;
+    [SerializeField] GameObject rulePanel;
+    [SerializeField] GameObject[] pages;
+    int currentPage = 0;
 
     void Start()
     {
@@ -17,7 +16,7 @@ public class RulePanel : MonoBehaviour
     {
         rulePanel.SetActive(true);
         currentPage = 0;
-        ShowPage(currentPage);
+        pages[currentPage].SetActive(true);
     }
 
     public void CloseRulePanel()
@@ -29,8 +28,9 @@ public class RulePanel : MonoBehaviour
     {
         if (currentPage < pages.Length - 1)
         {
-            currentPage++;
-            ShowPage(currentPage);
+            pages[currentPage].SetActive(false); 
+            currentPage++;                        
+            pages[currentPage].SetActive(true);   
         }
     }
 
@@ -38,16 +38,9 @@ public class RulePanel : MonoBehaviour
     {
         if (currentPage > 0)
         {
-            currentPage--;
-            ShowPage(currentPage);
-        }
-    }
-
-    private void ShowPage(int index)
-    {
-        for (int i = 0; i < pages.Length; i++)
-        {
-            pages[i].SetActive(i == index);
+            pages[currentPage].SetActive(false);  
+            currentPage--;                        
+            pages[currentPage].SetActive(true);   
         }
     }
 }
