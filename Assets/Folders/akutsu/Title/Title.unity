@@ -225,7 +225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 740, y: -40}
+  m_AnchoredPosition: {x: 700, y: -40}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451039497
@@ -249,7 +249,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8e36a4761794a96489100ac402121179, type: 3}
+    m_Font: {fileID: 12800000, guid: d446db3914e7f9a488e4f895b8e99fd0, type: 3}
     m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
@@ -711,7 +711,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8e36a4761794a96489100ac402121179, type: 3}
+    m_Font: {fileID: 12800000, guid: d446db3914e7f9a488e4f895b8e99fd0, type: 3}
     m_FontSize: 218
     m_FontStyle: 0
     m_BestFit: 0
@@ -1168,11 +1168,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 8e36a4761794a96489100ac402121179, type: 3}
-    m_FontSize: 218
+    m_Font: {fileID: 12800000, guid: d446db3914e7f9a488e4f895b8e99fd0, type: 3}
+    m_FontSize: 135
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 0
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1640,7 +1640,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8124205922219002975, guid: 5f2216401c418bd4b97c150fedba901c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 47cc04bd6ce7d4948974b48f297b6bab, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 47cc04bd6ce7d4948974b48f297b6bab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1772,7 +1772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e946bd02a71bd42bbc7b009f5249bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextSceneName: SelectScene
+  _nextSceneName: StageSelect
 --- !u!61 &1837614807
 BoxCollider2D:
   m_ObjectHideFlags: 0

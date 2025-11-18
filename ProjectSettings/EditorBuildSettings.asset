@@ -14,18 +14,39 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Folders/watanabe/Scenes/watanabe 1.unity
     guid: 8c9a66dc8bc2a184f875d1f176a8afb5
+  - enabled: 0
+    path: Assets/Folders/akutsu/Title/SelectScene.unity
+    guid: 5135cd3d3702d774cb36f7e7adbaab85
   - enabled: 1
     path: Assets/Folders/akutsu/Title/Title.unity
     guid: a915d9f05a0d4f34295be570c727b7d1
-  - enabled: 1
-    path: Assets/Folders/akutsu/Title/SelectScene.unity
-    guid: 5135cd3d3702d774cb36f7e7adbaab85
   - enabled: 1
     path: Assets/Folders/watanabe/Scenes/StageSelect.unity
     guid: 805b35f96c4f922409f188daf13c3b39
   - enabled: 1
     path: Assets/Folders/Maruyama/Scenes/InGame_tutorial.unity
     guid: 2f22d3895c3b86546a3de1f8148b8fc6
+  - enabled: 1
+    path: Assets/Folders/akutsu/StageScenes/InGame_A1_C.unity
+    guid: a933c063730aade41a5bb1af6490c6e0
+  - enabled: 1
+    path: Assets/Folders/akutsu/StageScenes/InGame_A2_C.unity
+    guid: a2a62d8c8c86e1545be0880518defeb3
+  - enabled: 1
+    path: Assets/Folders/akutsu/StageScenes/InGame_A3_C.unity
+    guid: dbb02c7ea350c3a43a26734d7f27d29a
+  - enabled: 1
+    path: Assets/Folders/Maruyama/Scenes/InGame_Stage5.unity
+    guid: cc616050fa679f244ae79af3f984e4e0
+  - enabled: 1
+    path: Assets/Folders/watanabe/MaiinScenes/6Stage.unity
+    guid: 811331e0e649f9946974ea6b42ee9ca0
+  - enabled: 1
+    path: Assets/Folders/watanabe/MaiinScenes/7Stage.unity
+    guid: f628a45a33d330a47a90d3aff750fcd7
+  - enabled: 1
+    path: Assets/Folders/watanabe/MaiinScenes/8Stage.unity
+    guid: e5969e0409bc69144aec489f906e885d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
