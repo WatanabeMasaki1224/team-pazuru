@@ -5034,7 +5034,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8124205922219002975, guid: 5f2216401c418bd4b97c150fedba901c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 47cc04bd6ce7d4948974b48f297b6bab, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 47cc04bd6ce7d4948974b48f297b6bab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -5977,6 +5977,7 @@ GameObject:
   - component: {fileID: 660091378021668435}
   - component: {fileID: 4336159645358059421}
   - component: {fileID: 3041474227001333420}
+  - component: {fileID: 8331386109515693778}
   m_Layer: 5
   m_Name: (B)GoNextStage
   m_TagString: Untagged
@@ -6083,6 +6084,19 @@ RectTransform:
   m_AnchoredPosition: {x: -350, y: -200}
   m_SizeDelta: {x: 470, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8331386109515693778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145237173165750019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: InGame_Stage5
 --- !u!224 &8365226858597659260
 RectTransform:
   m_ObjectHideFlags: 0

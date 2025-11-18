@@ -2014,8 +2014,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2602473708790172956, guid: 8c937447a1e7dcd46a85470f8753409d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 994789246}
   m_SourcePrefab: {fileID: 100100000, guid: 8c937447a1e7dcd46a85470f8753409d, type: 3}
+--- !u!1 &994789245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2602473708790172956, guid: 8c937447a1e7dcd46a85470f8753409d, type: 3}
+  m_PrefabInstance: {fileID: 994789244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &994789246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994789245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 7Stage
 --- !u!1 &1004856688
 GameObject:
   m_ObjectHideFlags: 0

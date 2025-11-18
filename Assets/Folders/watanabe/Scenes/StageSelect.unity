@@ -331,14 +331,26 @@ PrefabInstance:
     - target: {fileID: 570812921405896631, guid: a9ee29542c4b62547b309b9271cb003b, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 9b2de6abfbbfc794a82e4a0af8b3a19f, type: 3}
+      objectReference: {fileID: 12800000, guid: d446db3914e7f9a488e4f895b8e99fd0, type: 3}
     - target: {fileID: 570812921405896631, guid: a9ee29542c4b62547b309b9271cb003b, type: 3}
       propertyPath: m_FontData.m_MinSize
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 570812921405896631, guid: a9ee29542c4b62547b309b9271cb003b, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 20
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 570812921405896631, guid: a9ee29542c4b62547b309b9271cb003b, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570812921405896631, guid: a9ee29542c4b62547b309b9271cb003b, type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 570812921405896631, guid: a9ee29542c4b62547b309b9271cb003b, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 593952988233981796, guid: a9ee29542c4b62547b309b9271cb003b, type: 3}
       propertyPath: m_Name
@@ -932,8 +944,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u30B9\u30C6\u30FC\u30B8\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: eaf81ca2a1a0e504bb5a33b9449094df, type: 2}
+  m_sharedMaterial: {fileID: 3412215412911933162, guid: eaf81ca2a1a0e504bb5a33b9449094df, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1141,7 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: InGame_Stage5
 --- !u!114 &572762667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,7 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: 8Stage
 --- !u!114 &580484063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,7 +1567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: 7Stage
 --- !u!114 &597395694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2214,7 +2226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: InGame_Stage1
+  sceneName: InGame_A1_C
 --- !u!114 &1011523791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2381,7 +2393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1034492756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2489,7 +2501,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1034492758
@@ -2876,7 +2888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: InGame_A3_C
 --- !u!114 &1189172536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,7 +4775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: 6Stage
 --- !u!114 &1896998019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5335,7 +5347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc722c498e433b840bc81f8c4b03c1bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: InGame_Stage2
+  sceneName: InGame_A2_C
 --- !u!114 &2065947140
 MonoBehaviour:
   m_ObjectHideFlags: 0
