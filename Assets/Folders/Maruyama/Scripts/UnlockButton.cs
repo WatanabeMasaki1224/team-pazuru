@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 /// ステージのアンロック状態を管理し、
 /// ボタンの有効/無効と見た目を制御する。
 /// </summary>
-[RequireComponent(typeof(Button))]
+//[RequireComponent(typeof(Button))]
 public class UnlockButton : UnlockableUI, IPointerClickHandler
 {
     [Tooltip("このボタンが対応するステージ番号")]
