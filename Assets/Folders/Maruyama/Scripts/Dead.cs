@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +6,7 @@ public class Dead : MonoBehaviour
     public GameObject _gameOverPanel;
     public Text _gameOverText;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Ball"))
         {
@@ -40,6 +39,8 @@ public class Dead : MonoBehaviour
                 // _gameOverText.text = "ゲームオーバー";
             }
         }
+
+        if (this.gameObject.tag == "Ball")
         Destroy(this.gameObject);
     }
 }
