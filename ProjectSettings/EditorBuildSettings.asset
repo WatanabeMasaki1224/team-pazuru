@@ -26,9 +26,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Folders/Maruyama/Scenes/InGame_tutorial.unity
     guid: 2f22d3895c3b86546a3de1f8148b8fc6
-  - enabled: 0
-    path: Assets/Folders/akutsu/StageScenes/InGame_A3_C.unity
-    guid: dbb02c7ea350c3a43a26734d7f27d29a
+  - enabled: 1
+    path: Assets/Folders/watanabe/MaiinScenes/6Stage.unity
+    guid: 811331e0e649f9946974ea6b42ee9ca0
+  - enabled: 1
+    path: Assets/Folders/watanabe/MaiinScenes/7Stage.unity
+    guid: f628a45a33d330a47a90d3aff750fcd7
+  - enabled: 1
+    path: Assets/Folders/watanabe/MaiinScenes/8Stage.unity
+    guid: e5969e0409bc69144aec489f906e885d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
