@@ -291,6 +291,10 @@ PrefabInstance:
       propertyPath: _selectScene
       value: 
       objectReference: {fileID: 102900000, guid: 805b35f96c4f922409f188daf13c3b39, type: 3}
+    - target: {fileID: 5849747349319392189, guid: 5b84eef27ef63534c81bf8638a0dbe1d, type: 3}
+      propertyPath: _selectSceneName
+      value: StageSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 6371117302775753326, guid: 5b84eef27ef63534c81bf8638a0dbe1d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEditor;
 
 /// <summary>
 /// メニューウィンドウの処理を記述
@@ -8,32 +7,35 @@ using UnityEditor;
 /// </summary>
 public class MenuSwitchManager : MonoBehaviour
 {
-	[Header("セレクトシーンを追加")]
-	[SerializeField] SceneAsset _selectScene;
-	string _inGameSceneName;
+    [Header("セレクトシーン名を追加")]
+    [SerializeField] string _selectSceneName = "StageSelect";
+    string _inGameSceneName;
 
-	private void Start()
-	{
-		_inGameSceneName = SceneManager.GetActiveScene().name; // InGameの名前を取得
-	}
-
-	public void OnReset()
+    private void Start()
     {
-		if (SceneLoader.Instance != null)
-			SceneLoader.Instance.FadeOutAndLoad(_inGameSceneName);
-        else
-			SceneManager.LoadScene(_inGameSceneName); // InGameシーンをロードする
-	}
+        _inGameSceneName = SceneManager.GetActiveScene().name; // InGameの名前を取得
+    }
 
-	public void OnSelectScene()
-	{
-		if (_selectScene)
-		{
+    public void OnReset()
+    {
+        if (SceneLoader.Instance != null)
+            SceneLoader.Instance.FadeOutAndLoad(_inGameSceneName);
+        else
+            SceneManager.LoadScene(_inGameSceneName); // InGameシーンをロードする
+    }
+
+    public void OnSelectScene()
+    {
+        if (!string.IsNullOrEmpty(_selectSceneName))
+        {
             if (SceneLoader.Instance != null)
-                SceneLoader.Instance.FadeOutAndLoad(_selectScene.name);
+                SceneLoader.Instance.FadeOutAndLoad(_selectSceneName);
             else
-				SceneManager.LoadScene(_selectScene.name);
-		}
-		else Debug.Log("Sceneが設定されていません");
-	}
+                SceneManager.LoadScene(_selectSceneName);
+        }
+        else
+        {
+            Debug.Log("Scene名が設定されていません");
+        }
+    }
 }

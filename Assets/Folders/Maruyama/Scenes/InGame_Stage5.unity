@@ -3280,6 +3280,10 @@ PrefabInstance:
       propertyPath: _selectScene
       value: 
       objectReference: {fileID: 102900000, guid: 805b35f96c4f922409f188daf13c3b39, type: 3}
+    - target: {fileID: 8869422452752842112, guid: a66a44cf2e91b9e4397e3a1a7c1607dd, type: 3}
+      propertyPath: _selectSceneName
+      value: StageSelect
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
