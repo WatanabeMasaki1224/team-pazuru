@@ -19,8 +19,7 @@ public class TitleOnClick : MonoBehaviour
 			if (IsSceneInBuildSettings(_nextSceneName))
 			{
 				Debug.Log(_nextSceneName + " が見つかりました。シーンをロードします。");
-                SceneLoader.Instance.FadeOutAndLoad(_nextSceneName);
-                // SceneManager.LoadScene(_nextSceneName);
+				SceneManager.LoadScene(_nextSceneName);
 			}
 			else
 			{
