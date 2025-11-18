@@ -19,14 +19,16 @@ public class MenuSwitchManager : MonoBehaviour
 
 	public void OnReset()
     {
-		SceneManager.LoadScene(_inGameSceneName); // InGameシーンをロードする
+        SceneLoader.Instance.FadeOutAndLoad(_inGameSceneName);
+        // SceneManager.LoadScene(_inGameSceneName); // InGameシーンをロードする
 	}
 
 	public void OnSelectScene()
 	{
 		if (_selectScene)
 		{
-			SceneManager.LoadScene(_selectScene.name);
+            SceneLoader.Instance.FadeOutAndLoad(_selectScene.name);
+            // SceneManager.LoadScene(_selectScene.name);
 		}
 		else Debug.Log("Sceneが設定されていません");
 	}
