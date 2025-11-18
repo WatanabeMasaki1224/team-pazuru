@@ -15,6 +15,13 @@ public class RulePanel : MonoBehaviour
     public void OpenRulePanel()
     {
         rulePanel.SetActive(true);
+
+        // すべて非表示
+        foreach (var page in pages)
+        {
+            page.SetActive(false);
+        }
+
         currentPage = 0;
         pages[currentPage].SetActive(true);
     }
@@ -22,6 +29,12 @@ public class RulePanel : MonoBehaviour
     public void CloseRulePanel()
     {
         rulePanel.SetActive(false);
+
+        // すべてのページを非表示にする
+        foreach (var page in pages)
+        {
+            page.SetActive(false);
+        }
     }
 
     public void NextPage()
