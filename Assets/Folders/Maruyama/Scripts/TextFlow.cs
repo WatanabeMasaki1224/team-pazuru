@@ -1,10 +1,10 @@
 using UnityEngine;
 using DG.Tweening;
-using TMPro;
+using UnityEngine.UI;
 
 public class TextFlow : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _text;
+    [SerializeField] Text _text;
     [SerializeField] Color _color;
     [SerializeField] float duration;
 
