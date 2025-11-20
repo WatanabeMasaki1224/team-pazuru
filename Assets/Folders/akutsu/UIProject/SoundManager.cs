@@ -1,21 +1,46 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
-	public static SoundManager Instance;
+    public static SoundManager Instance;
 
-	private void Awake()
-	{
-		// 1. 既にインスタンスが存在するかチェック
-		if (Instance == null)
-		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-			Debug.LogWarning("SoundManagerが重複して生成されました。新しいインスタンスを破棄します。");
-		}
-	}
+    [SerializeField] AudioMixer audioMixer; // インスペクターでセットする
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // スライダーからこの関数を呼んでもらう
+    public void SetBGM(float volume)
+    {
+        audioMixer.SetFloat("BGM", volume);
+    }
+
+    public void SetSE(float volume)
+    {
+        audioMixer.SetFloat("SE", volume);
+    }
+
+    // スライダーの初期位置を決めるために今の音量を取得する
+    public float GetBGMVolume()
+    {
+        audioMixer.GetFloat("BGM", out float vol);
+        return vol;
+    }
+
+    public float GetSEVolume()
+    {
+        audioMixer.GetFloat("SE", out float vol);
+        return vol;
+    }
 }

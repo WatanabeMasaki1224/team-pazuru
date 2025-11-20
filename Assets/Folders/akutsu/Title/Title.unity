@@ -1630,6 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610aae32c9018bc44b1f827aa6138c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 5f2216401c418bd4b97c150fedba901c, type: 2}
 --- !u!82 &1770738141
 AudioSource:
   m_ObjectHideFlags: 0

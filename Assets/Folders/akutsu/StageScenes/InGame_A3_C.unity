@@ -2756,6 +2756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610aae32c9018bc44b1f827aa6138c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
 --- !u!1 &149432619202646669
 GameObject:
   m_ObjectHideFlags: 0
@@ -5000,6 +5001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7453173388444200863}
   - component: {fileID: 8136376404751325823}
+  - component: {fileID: 8136376404751325824}
   m_Layer: 5
   m_Name: BGM
   m_TagString: Untagged
@@ -5987,6 +5989,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8136376404751325824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5493766495049220717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893b767022449564b891000b92467a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &8145237173165750019
 GameObject:
   m_ObjectHideFlags: 0

@@ -3948,6 +3948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3252649225575936580}
   - component: {fileID: 4226471788301371300}
+  - component: {fileID: 4226471788301371301}
   m_Layer: 5
   m_Name: BGM
   m_TagString: Untagged
@@ -5747,6 +5748,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4226471788301371301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464012653088563126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893b767022449564b891000b92467a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!224 &4253450263703717977
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6285,6 +6299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610aae32c9018bc44b1f827aa6138c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
 --- !u!1 &5511105694273996992
 GameObject:
   m_ObjectHideFlags: 0
