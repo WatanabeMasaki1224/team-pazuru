@@ -884,7 +884,7 @@ MonoBehaviour:
   resultPanel: {fileID: 5417719801991882070}
   clearText: {fileID: 9071936780485986560}
   buttonGroup: {fileID: 4901391136981819270}
-  currentStageNumber: 3
+  currentStageNumber: 4
   shapeLimit: 1
   blackMedal: {fileID: 2848856355591098740}
   yellowMedal: {fileID: 4309538474103171906}
@@ -4892,7 +4892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3296da74922b3bf41bb6791f8fc4ec48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectScene: {fileID: 102900000, guid: 805b35f96c4f922409f188daf13c3b39, type: 3}
+  _selectSceneName: StageSelect
 --- !u!1 &5198832719019403715
 GameObject:
   m_ObjectHideFlags: 0
