@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4830cdb9e2767324cb7d80c295026ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSE: {fileID: 8300000, guid: 0434f384861305543bd60859d8b8394f, type: 3}
   resultPanel: {fileID: 1945936422}
   clearText: {fileID: 2054332534}
   buttonGroup: {fileID: 306230348}
@@ -3590,6 +3591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8027938745251006613}
   - component: {fileID: 9221074652204114891}
+  - component: {fileID: 9221074652204114892}
   m_Layer: 5
   m_Name: SE
   m_TagString: Untagged
@@ -5252,6 +5254,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9221074652204114892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259185839967747674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893b767022449564b891000b92467a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

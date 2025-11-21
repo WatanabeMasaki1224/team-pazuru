@@ -699,6 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4830cdb9e2767324cb7d80c295026ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSE: {fileID: 8300000, guid: 0434f384861305543bd60859d8b8394f, type: 3}
   resultPanel: {fileID: 3268048897236660017}
   clearText: {fileID: 3826254172671879215}
   buttonGroup: {fileID: 984268726663429810}
@@ -4643,6 +4644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3417506002634744409}
   - component: {fileID: 3772976357619477082}
+  - component: {fileID: 3772976357619477083}
   m_Layer: 5
   m_Name: SE
   m_TagString: Untagged
@@ -5420,6 +5422,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3772976357619477083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950981651516431535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893b767022449564b891000b92467a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!224 &3804180456796278840
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6300,6 +6315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 0}
+  seAudioSource: {fileID: 0}
 --- !u!1 &5511105694273996992
 GameObject:
   m_ObjectHideFlags: 0

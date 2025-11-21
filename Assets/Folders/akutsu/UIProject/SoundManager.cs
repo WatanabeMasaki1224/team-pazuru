@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance;
 
     [SerializeField] AudioMixer audioMixer; // インスペクターでセットする
-
+    [SerializeField] AudioSource seAudioSource;
     void Awake()
     {
         if (Instance == null)
@@ -42,5 +42,13 @@ public class SoundManager : MonoBehaviour
     {
         audioMixer.GetFloat("SE", out float vol);
         return vol;
+    }
+
+    public void PlaySE(AudioClip clip)
+    {
+        if (clip != null) // nullチェないと使いまわせない
+        {
+            seAudioSource.PlayOneShot(clip);
+        }
     }
 }

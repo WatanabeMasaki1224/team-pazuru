@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4830cdb9e2767324cb7d80c295026ef8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSE: {fileID: 8300000, guid: 0434f384861305543bd60859d8b8394f, type: 3}
   resultPanel: {fileID: 1706492579506674124}
   clearText: {fileID: 2406269028783731814}
   buttonGroup: {fileID: 1766549891184206620}
@@ -4350,6 +4351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 0}
+  seAudioSource: {fileID: 0}
 --- !u!114 &3932032428995605499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5710,6 +5712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5821372750710218905}
   - component: {fileID: 5474281717737760922}
+  - component: {fileID: 7257418100487134832}
   m_Layer: 5
   m_Name: SE
   m_TagString: Untagged
@@ -5717,6 +5720,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7257418100487134832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257418100487134831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893b767022449564b891000b92467a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
 --- !u!1001 &7444372023319123930
 PrefabInstance:
   m_ObjectHideFlags: 0
