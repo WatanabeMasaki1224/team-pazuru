@@ -1,92 +1,98 @@
-using JetBrains.Annotations;
+ï»¿using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using NUnit.Framework.Constraints;
-
 using Unity.VisualScripting;
 
 public class Goal : MonoBehaviour
 {
-    [Header("UIŠÖŒW")]
-    public GameObject resultPanel;@ //ƒŠƒUƒ‹ƒgUIƒpƒlƒ‹
+    [Header("éŸ³ç´ æ")]
+    public AudioClip goalSE;
+
+    [Header("UIé–¢ä¿‚")]
+    public GameObject resultPanel;ã€€ //ãƒªã‚¶ãƒ«ãƒˆUIãƒ‘ãƒãƒ«
     public Text clearText;
     public GameObject buttonGroup;
 
-    [Header("ƒXƒe[ƒWî•ñ")]
-    public int currentStageNumber; //ƒXƒe[ƒW‚Ì”Ô†
-    public int shapeLimit = 5;   //ƒƒ_ƒ‹Šl“¾‚Ì‚½‚ß‚Ì}Œ`”z’uãŒÀ
+    [Header("ã‚¹ãƒ†ãƒ¼ã‚¸æƒ…å ±")]
+    public int currentStageNumber; //ã‚¹ãƒ†ãƒ¼ã‚¸ã®ç•ªå·
+    public int shapeLimit = 5;Â  Â //ãƒ¡ãƒ€ãƒ«ç²å¾—ã®ãŸã‚ã®å›³å½¢é…ç½®ä¸Šé™
 
-    [Header("ƒƒ_ƒ‹UI")]
+    [Header("ãƒ¡ãƒ€ãƒ«UI")]
     public Image blackMedal;
     public Image yellowMedal;
     public Image newMedal;
 
-    private bool acquired;@//ƒƒ_ƒ‹‚ğŠl“¾Ï‚İ‚©
-    private bool medalJudgment;@@//ƒƒ_ƒ‹Šl“¾”»’è
-    bool isNewMedal; //V‚µ‚­ƒƒ_ƒ‹‚ğŠl“¾‚µ‚½‚©
+    private bool acquired;ã€€//ãƒ¡ãƒ€ãƒ«ã‚’ç²å¾—æ¸ˆã¿ã‹
+    private bool medalJudgment;ã€€ã€€//ãƒ¡ãƒ€ãƒ«ç²å¾—åˆ¤å®š
+    bool isNewMedal; //æ–°ã—ããƒ¡ãƒ€ãƒ«ã‚’ç²å¾—ã—ãŸã‹
+    private bool isGoalProcessed = false; // å‡¦ç†ãŒé–‹å§‹ã—ãŸã‹ã®ãƒ•ãƒ©ã‚°
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ball"))
+        // æ—¢ã«å‡¦ç†ä¸­ï¼ˆtrueï¼‰ã§ã‚ã‚Œã°ã€ã“ã“ã§å‡¦ç†ã‚’çµ‚äº†ã™ã‚‹
+        if (other.CompareTag("Ball") && !isGoalProcessed)
         {
-            Debug.Log("ƒS[ƒ‹“’B");
+            isGoalProcessed = true; // å‡¦ç†ã‚’é–‹å§‹ã—ãŸã®ã§ãƒ•ãƒ©ã‚°ã‚’ONã«ã™ã‚‹
 
-            //ƒS[ƒ‹‚µ‚½‚çƒ{[ƒ‹‚ğ~‚ß‚é
+            Debug.Log("ã‚´ãƒ¼ãƒ«åˆ°é”");
+
+            //ã‚´ãƒ¼ãƒ«ã—ãŸã‚‰ãƒœãƒ¼ãƒ«ã‚’æ­¢ã‚ã‚‹
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
                 rb.linearVelocity = Vector2.zero;
-                rb.angularVelocity = 0f;  //‰ñ“]‚ğ~‚ß‚é
+                rb.angularVelocity = 0f;Â  //å›è»¢ã‚’æ­¢ã‚ã‚‹
                 rb.gravityScale = 0f;
             }
 
-            //ƒŠƒUƒ‹ƒgƒtƒFƒCƒY‚É•ÏX
+            //ãƒªã‚¶ãƒ«ãƒˆãƒ•ã‚§ã‚¤ã‚ºã«å¤‰æ›´
             if (GameManager.instance != null)
             {
                 GameManager.instance.ToResult();
             }
 
 
-            //}Œ`‚Ì”‚ğƒJƒEƒ“ƒg
+            //å›³å½¢ã®æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆ
             GameObject[] shapes = GameObject.FindGameObjectsWithTag("Shape");
             int shapeCount = shapes.Length;
-            Debug.Log($"}Œ`”z’u”:{shapeCount}/}Œ`”z’uãŒÀ:{shapeLimit}");
+            Debug.Log($"å›³å½¢é…ç½®æ•°:{shapeCount}/å›³å½¢é…ç½®ä¸Šé™:{shapeLimit}");
 
-            //ƒƒ_ƒ‹Šl“¾”»’èiãŒÀˆÈ‰º‚È‚çtruej
+            //ãƒ¡ãƒ€ãƒ«ç²å¾—åˆ¤å®šï¼ˆä¸Šé™ä»¥ä¸‹ãªã‚‰trueï¼‰
             medalJudgment = shapeCount <= shapeLimit;
 
-            //ƒXƒe[ƒWŒÅ—L‚Ì•Û‘¶ƒL[
+            //ã‚¹ãƒ†ãƒ¼ã‚¸å›ºæœ‰ã®ä¿å­˜ã‚­ãƒ¼
             string stageMedalKey = $"Medal_Stage_{currentStageNumber}";
 
-            //ƒƒ_ƒ‹Šl“¾Ï‚İ‚©ƒ`ƒFƒbƒN
+            //ãƒ¡ãƒ€ãƒ«ç²å¾—æ¸ˆã¿ã‹ãƒã‚§ãƒƒã‚¯
             acquired = PlayerPrefs.GetInt(stageMedalKey, 0) == 1;
 
-            //ƒƒ_ƒ‹‚Ì‘”‚ğ“Ç‚İ‚İ
+            //ãƒ¡ãƒ€ãƒ«ã®ç·æ•°ã‚’èª­ã¿è¾¼ã¿
             int totalMedal = PlayerPrefs.GetInt("MedalCount", 0);
 
             if (medalJudgment && !acquired)
             {
                 totalMedal += 1;
-                PlayerPrefs.SetInt("MedalCount" , totalMedal);
-                PlayerPrefs.SetInt(stageMedalKey , 1);
+                PlayerPrefs.SetInt("MedalCount", totalMedal);
+                PlayerPrefs.SetInt(stageMedalKey, 1);
                 PlayerPrefs.Save();
                 acquired = true;
                 isNewMedal = true;
-                Debug.Log($"ƒƒ_ƒ‹Šl“¾IiƒXƒe[ƒW{currentStageNumber}j ‡Œv{totalMedal}");
+                Debug.Log($"ãƒ¡ãƒ€ãƒ«ç²å¾—ï¼ï¼ˆã‚¹ãƒ†ãƒ¼ã‚¸{currentStageNumber}ï¼‰ åˆè¨ˆ{totalMedal}");
             }
 
-            else if(acquired)
+            else if (acquired)
             {
-                Debug.Log($"ƒƒ_ƒ‹Šl“¾Ï");
+                Debug.Log($"ãƒ¡ãƒ€ãƒ«ç²å¾—æ¸ˆ");
             }
 
             else
             {
-                Debug.Log("ƒƒ_ƒ‹Šl“¾ğŒ‚ğ–‚½‚µ‚Ä‚È‚¢");
+                Debug.Log("ãƒ¡ãƒ€ãƒ«ç²å¾—æ¡ä»¶ã‚’æº€ãŸã—ã¦ãªã„");
             }
 
-            //ƒŠƒUƒ‹ƒg‰æ–Ê•\¦
+            //ãƒªã‚¶ãƒ«ãƒˆç”»é¢è¡¨ç¤º
             if (resultPanel != null)
             {
                 resultPanel.SetActive(true);
@@ -103,62 +109,71 @@ public class Goal : MonoBehaviour
                 StartCoroutine(ClearAnimation());
             }
 
-            // ƒXƒe[ƒWƒNƒŠƒAŒã‚ÉŸƒXƒe[ƒW‚ğ‰ğ•ú
+            // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¯ãƒªã‚¢å¾Œã«æ¬¡ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’è§£æ”¾
             StageSerect.UnlockNextStage(currentStageNumber);
-        
+
         }
     }
 
     public void ResetMedal()
     {
         PlayerPrefs.DeleteKey("MedalCount");
-        //ƒXƒe[ƒW‚²‚Æ‚ÌŠl“¾ó‹µ‚àíœ
-        for (int i = 1; i <= 8; i++) // Å‘å100ƒXƒe[ƒW‘z’è
+        //ã‚¹ãƒ†ãƒ¼ã‚¸ã”ã¨ã®ç²å¾—çŠ¶æ³ã‚‚å‰Šé™¤
+        for (int i = 1; i <= 8; i++) // æœ€å¤§100ã‚¹ãƒ†ãƒ¼ã‚¸æƒ³å®š
         {
             string key = $"Medal_Stage_{i}";
             if (PlayerPrefs.HasKey(key))
                 PlayerPrefs.DeleteKey(key);
         }
-    @@
+
         PlayerPrefs.Save();
-        Debug.Log("ƒƒ_ƒ‹‚ğƒŠƒZƒbƒg‚µ‚½" );
+        Debug.Log("ãƒ¡ãƒ€ãƒ«ã‚’ãƒªã‚»ãƒƒãƒˆã—ãŸ");
     }
 
     private IEnumerator ClearAnimation()
     {
-        //Œ³‚ÌƒXƒP[ƒ‹‚ğ‹L‰¯
+        //å…ƒã®ã‚¹ã‚±ãƒ¼ãƒ«ã‚’è¨˜æ†¶
         Vector3 originalScale = clearText.transform.localScale;
-        //Å‰‚Í¬‚³‚­
+        //æœ€åˆã¯å°ã•ã
         clearText.transform.localScale = Vector3.zero;
-        float duration = 1.0f; //Šg‘å‚É‚©‚©‚éŠÔ
+        float duration = 1.0f; //æ‹¡å¤§ã«ã‹ã‹ã‚‹æ™‚é–“
         float time = 0f;
+        bool sePlayed = false;
 
         while (time < duration)
         {
+            if (!sePlayed && time >= duration * 4 / 5f)
+            {
+                // ã“ã“ã§SEã‚’è¿½åŠ ã™ã‚‹
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlaySE(goalSE);
+                sePlayed = true; // SEãŒé³´ã£ãŸã‚‰ãƒ•ãƒ©ã‚°ã‚’ONã«ã™ã‚‹
+            }
+
             time += Time.deltaTime;
-            float scale = Mathf.Lerp(0f,1f,time/duration);
+            float scale = Mathf.Lerp(0f, 1f, time / duration);
             clearText.transform.localScale = originalScale * scale;
             yield return null;
         }
 
         clearText.transform.localScale = originalScale;
 
-        if(buttonGroup != null)
+        if (buttonGroup != null)
         {
             buttonGroup.SetActive(true);
         }
 
-        if(blackMedal != null)
+        if (blackMedal != null)
         {
-            blackMedal.gameObject.SetActive(!acquired); 
+            blackMedal.gameObject.SetActive(!acquired);
         }
 
-        if(yellowMedal != null)
+        if (yellowMedal != null)
         {
             yellowMedal.gameObject.SetActive(acquired);
         }
 
-        if(newMedal != null && medalJudgment && isNewMedal)
+        if (newMedal != null && medalJudgment && isNewMedal)
         {
             StartCoroutine(MedalAnimation());
         }
@@ -166,10 +181,10 @@ public class Goal : MonoBehaviour
 
     private IEnumerator MedalAnimation()
     {
-        //Å‰‚Í‘å‚«‚­•\¦
+        //æœ€åˆã¯å¤§ããè¡¨ç¤º
         newMedal.transform.localScale = Vector3.one * 3;
-        newMedal.gameObject.SetActive(true) ;
-        blackMedal.gameObject.SetActive(true);  //”wŒi—p
+        newMedal.gameObject.SetActive(true);
+        blackMedal.gameObject.SetActive(true);Â  //èƒŒæ™¯ç”¨
 
         Vector3 targetScale = blackMedal.transform.localScale;
         float duration = 1.0f;
@@ -178,10 +193,10 @@ public class Goal : MonoBehaviour
         while (time < duration)
         {
             time += Time.deltaTime;
-            newMedal.transform.localScale = Vector3.Lerp(Vector3.one * 5 , targetScale, time/duration);
+            newMedal.transform.localScale = Vector3.Lerp(Vector3.one * 5, targetScale, time / duration);
             yield return null;
         }
 
-        // newMedal.transform.position = targetScale; 
+        // newMedal.transform.position = targetScale;Â 
     }
 }
